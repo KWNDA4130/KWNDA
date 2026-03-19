@@ -246,6 +246,30 @@
     from { transform: translateY(-100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
   }
+
+  /* PROGRESS BAR */
+  .quiz-progress-wrap {
+    background: var(--border);
+    border-radius: 99px;
+    height: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .quiz-progress-bar {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--accent);
+    transition: width .4s ease;
+  }
+
+  /* CONFETTI CANVAS */
+  #confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
 </style>
 </head>
 <body>
@@ -255,6 +279,7 @@
   <h1>Kinyarwanda Basics</h1>
   <p>Tap a class to study · Polite forms always first</p>
 </header>
+<canvas id="confetti-canvas"></canvas>
 
 <div class="tabs">
   <button class="tab active unlocked" id="tab0" onclick="showClass('c0',this)">Class 0 · Pronunciation</button>
@@ -935,13 +960,9 @@ const quizData = {
   ],
   1: [
     { q: "How do you say 'Hello' politely?",               opts: ["Bite!", "Uraho!", "Muraho neza!", "Meze neza"],                          ans: 2 },
-    { q: "How do you say 'Hello' casually (kids)?",        opts: ["Muraho neza!", "Uraho!", "Bite!", "Yego"],                               ans: 2 },
     { q: "Polite 'My name is…'",                           opts: ["Nitwa [name]", "Amazina yanjye ni [name]", "Ndi [name]", "Bite!"],       ans: 1 },
-    { q: "Casual 'My name is…'",                           opts: ["Amazina yanjye ni [name]", "Nitwa [name]", "Ndi [name]", "Muraho"],      ans: 1 },
     { q: "Polite 'I am from…'",                            opts: ["Nva [place]", "Mba [place]", "Nturuka muri [place]", "Ndi [place]"],     ans: 2 },
-    { q: "Casual 'I am from…'",                            opts: ["Nturuka muri…", "Nva…", "Mba…", "Ndi…"],                                ans: 1 },
     { q: "Polite 'I live in…'",                            opts: ["Mba [city]", "Ntuye I [city] muri [country]", "Ndi [city]", "Nva [city]"], ans: 1 },
-    { q: "Casual 'I live in…'",                            opts: ["Ntuye I…", "Nturuka muri…", "Mba…", "Ndi…"],                            ans: 2 },
     { q: "How do you say 'I am 25 years old'?",            opts: ["Ndi imyaka 25", "Nitwa 25", "Mfite imyaka 25", "Ntuye 25"],             ans: 2 },
     { q: "'Ndi Umunyeshuri w'ikinyarwanda' means…",        opts: ["I am from Rwanda", "I am a Kinyarwanda student", "I speak Kinyarwanda", "I live in Rwanda"], ans: 1 },
     { q: "How do you say 'Yes'?",                          opts: ["Oya", "Neza", "Yego", "Gikeya"],                                        ans: 2 },
@@ -952,13 +973,9 @@ const quizData = {
   ],
   2: [
     { q: "Polite 'What's your name?'",                     opts: ["Witwa nde?", "Amazina yanyu ni ayahe?", "Amazina yawe?", "Nitwa nde?"],    ans: 1 },
-    { q: "Casual 'What's your name?'",                     opts: ["Amazina yanyu ni ayahe?", "Mwitwa bande?", "Witwa nde?", "Mwitwa nde?"],   ans: 2 },
     { q: "Polite 'Where are you from?'",                   opts: ["Uturuka he?", "Nturuka he?", "Muturuka he?", "Duturuka he?"],           ans: 2 },
-    { q: "Casual 'Where are you from?'",                   opts: ["Muturuka he?", "Uturuka he?", "Nturuka he?", "Duturuka he?"],           ans: 1 },
     { q: "Polite 'Where do you live?'",                    opts: ["Utuye he?", "Wowe uturukas he?", "Mutuye he?", "Ntuye he?"],            ans: 2 },
-    { q: "Casual 'Where do you live?'",                    opts: ["Mutuye he?", "Mwebwe muturuka he?", "Utuye he?", "Ntuye he?"],          ans: 2 },
     { q: "Polite 'How are you doing?'",                    opts: ["Umeze gute?", "Mumeze gute?", "Meze neza", "Amakuru yawe?"],            ans: 1 },
-    { q: "Casual 'How are you doing?'",                    opts: ["Mumeze gute?", "Umeze gute?", "Tumeze neza", "Amakuru yanyu?"],         ans: 1 },
     { q: "Polite 'How are you?' (news)",                   opts: ["Amakuru yawe?", "Umeze gute?", "Amakuru yanyu?", "Mumeze gute?"],       ans: 2 },
     { q: "Response to 'Amakuru yanyu?'",                   opts: ["Murakoze", "Tumeze neza", "Ni meza", "Yego"],                          ans: 2 },
     { q: "Polite 'I am fine'",                             opts: ["Meze neza", "Nimeza", "Tumeze neza", "Urakoze"],                        ans: 2 },
@@ -968,7 +985,6 @@ const quizData = {
     { q: "'I speak a little Kinyarwanda'",                 opts: ["Nishimiye Gikeya", "Mvuga Ikinyarwanda Gikeya", "Ndi Gikeya", "Murakoze Gikeya"], ans: 1 },
     { q: "'I am happy to know you'",                       opts: ["Nishimiye kukubona", "Kubabona", "Kubamenya", "Nishimiye kukumenya"],   ans: 3 },
     { q: "'I am happy to see you'",                        opts: ["Nishimiye kukumenya", "Kubamenya", "Nishimiye kukubona", "Kubabona"],   ans: 2 },
-    { q: "Casual 'Thank you'",                             opts: ["Murakoze", "Namwe", "Urakoze", "Nawe"],                                ans: 2 },
   ],
   3: [
     { q: "Morning greeting:",                              opts: ["Mwiriwe neza?", "Murabeho neza.", "Mwaramutse neza?", "Bite!"],         ans: 2 },
@@ -983,7 +999,6 @@ const quizData = {
     { q: "'Stay safe the whole day'",                      opts: ["Muramuke neza.", "Murabeho neza.", "Mwirirwe neza.", "Mwiriwe mute?"], ans: 2 },
     { q: "'Stay safe until next morning'",                 opts: ["Mwirirwe neza.", "Murabeho neza.", "Muramuke neza.", "Mwiriwe mute?"], ans: 2 },
     { q: "Polite 'Goodbye' (leaving):",                    opts: ["Murabeho.", "Bite!", "Mwirirwe neza.", "Murabeho neza."],             ans: 3 },
-    { q: "Casual 'Bye':",                                  opts: ["Murabeho neza.", "Mwirirwe neza.", "Muramuke neza.", "Murabeho."],    ans: 3 },
     { q: "'Have a good morning'",                          opts: ["Mugire umunsi mwiza", "Mugire Igitondo cyiza", "Mugire Umugoroba mwiza", "Mugire Ijoro ryiza"], ans: 1 },
     { q: "'Have a nice day'",                              opts: ["Mugire Igitondo cyiza", "Mugire umunsi mwiza", "Mugire Umugoroba mwiza", "Mugire Ijoro ryiza"], ans: 1 },
     { q: "'Have a good evening'",                          opts: ["Mugire Igitondo cyiza", "Mugire umunsi mwiza", "Mugire Umugoroba mwiza", "Mugire Ijoro ryiza"], ans: 2 },
@@ -1136,11 +1151,14 @@ function renderQuestion(n) {
         <div style="font-size:.88rem;color:#6fa3d4;margin-bottom:4px">${pct}% — ${perfect ? 'Next class unlocked! 🎉' : 'Try again to unlock the next class.'}</div>
       </div>`;
     if (perfect) tryUnlockNext(n);
+    if (perfect) launchConfetti();
     return;
   }
 
   const item = quizData[n][qi];
+  const pctDone = Math.round((qi / total) * 100);
   el.innerHTML = `
+    <div class="quiz-progress-wrap"><div class="quiz-progress-bar" style="width:${pctDone}%"></div></div>
     <div style="font-size:.78rem;color:var(--muted);margin-bottom:10px;text-align:right">${qi+1} / ${total}</div>
     <div class="quiz-q" id="qcard${n}">
       <div class="q-text">${item.q}</div>
@@ -1196,8 +1214,51 @@ document.querySelectorAll('.class-section').forEach(section => {
 });
 
 // ══════════════════════════════
-// REVIEW MODE
+// CONFETTI
 // ══════════════════════════════
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#e8a838','#3bbf8a','#6fa3d4','#d05a5a','#f0ede6','#ffffff'];
+  const pieces = Array.from({length: 120}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * -canvas.height,
+    w: Math.random() * 10 + 5,
+    h: Math.random() * 6 + 3,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    rot: Math.random() * 360,
+    rotSpeed: (Math.random() - 0.5) * 6,
+    vx: (Math.random() - 0.5) * 3,
+    vy: Math.random() * 4 + 2,
+  }));
+
+  let frame;
+  let elapsed = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = Math.max(0, 1 - elapsed / 180);
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.rotSpeed;
+    });
+    elapsed++;
+    if (elapsed < 200) frame = requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  cancelAnimationFrame(frame);
+  elapsed = 0;
+  draw();
+}
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -1274,11 +1335,14 @@ function renderReviewQuestion() {
         </div>
         <div style="font-size:.88rem;color:#6fa3d4">${pct}% across all unlocked classes</div>
       </div>`;
+    if (perfect) launchConfetti();
     return;
   }
 
   const item = reviewQuizData[qi];
+  const pctDone = Math.round((qi / total) * 100);
   el.innerHTML = `
+    <div class="quiz-progress-wrap"><div class="quiz-progress-bar" style="width:${pctDone}%"></div></div>
     <div style="font-size:.78rem;color:var(--muted);margin-bottom:10px;text-align:right">${qi+1} / ${total}</div>
     <div class="quiz-q" id="qcardR">
       <div class="q-text">${item.q}</div>
