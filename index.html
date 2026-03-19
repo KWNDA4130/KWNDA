@@ -1018,6 +1018,7 @@ const quizData = {
 
 // TABS
 function showClass(id, btn) {
+  if (btn.classList.contains('locked')) return;
   document.querySelectorAll('.class-section').forEach(s => s.classList.remove('visible'));
   document.getElementById(id).classList.add('visible');
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
