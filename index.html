@@ -1113,6 +1113,8 @@ const qCurrent = {0:0,1:0,2:0,3:0,4:0};
 
 function buildQuiz(n) {
   qScore[n]=0; qTotal[n]=0; qCurrent[n]=0;
+  document.getElementById(`c${n}-score`).textContent = 0;
+  document.getElementById(`c${n}-total`).textContent = quizData[n].length;
   renderQuestion(n);
 }
 
@@ -1165,7 +1167,6 @@ function checkAns(btn, n, qi, chosen, correct) {
   }
   qTotal[n]++;
   document.getElementById(`c${n}-score`).textContent = qScore[n];
-  document.getElementById(`c${n}-total`).textContent = qTotal[n];
 
   // Show next button
   const nextBtn = document.createElement('button');
@@ -1180,7 +1181,7 @@ function checkAns(btn, n, qi, chosen, correct) {
 function resetQuiz(n) {
   qScore[n]=0; qTotal[n]=0; qCurrent[n]=0;
   document.getElementById(`c${n}-score`).textContent=0;
-  document.getElementById(`c${n}-total`).textContent=0;
+  document.getElementById(`c${n}-total`).textContent=quizData[n].length;
   renderQuestion(n);
 }
 
@@ -1253,7 +1254,7 @@ function buildReviewQuiz() {
   reviewQuizData = shuffle(all);
   reviewQCurrent = 0; reviewQScore = 0; reviewQTotal = 0;
   document.getElementById('cR-score').textContent = 0;
-  document.getElementById('cR-total').textContent = 0;
+  document.getElementById('cR-total').textContent = reviewQuizData.length;
   renderReviewQuestion();
 }
 
@@ -1304,7 +1305,6 @@ function checkReviewAns(btn, qi, chosen, correct) {
   }
   reviewQTotal++;
   document.getElementById('cR-score').textContent = reviewQScore;
-  document.getElementById('cR-total').textContent = reviewQTotal;
 
   const nextBtn = document.createElement('button');
   const isLast = reviewQCurrent + 1 >= reviewQuizData.length;
