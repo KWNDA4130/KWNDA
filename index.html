@@ -70,13 +70,13 @@
     font-size: 1rem;
     font-weight: 700;
     color: var(--text);
-    flex: 1;
   }
   #topbar-class {
     font-size: .72rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-left: auto;
   }
 
   /* SIDEBAR */
@@ -1879,14 +1879,24 @@ function startSecretUnlock(n) {
   const cid = pageIds[n];
   const btn = document.getElementById(`menu-${cid}`);
   if (!btn) return;
-  const prog = document.createElement('div');
-  prog.style.cssText = `position:absolute;bottom:0;left:0;height:3px;background:var(--accent);border-radius:40px;width:0%;transition:width 5s linear`;
+
+  // Show countdown hint on the button
+  const hint = document.createElement('span');
+  hint.id = `unlock-hint-${n}`;
+  hint.style.cssText = 'position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:.7rem;color:var(--accent);';
+  hint.textContent = '5…';
   btn.style.position = 'relative';
-  btn.style.overflow = 'hidden';
-  btn.appendChild(prog);
-  secretProgress[n] = prog;
-  setTimeout(() => { if(secretProgress[n]) secretProgress[n].style.width = '100%'; }, 30);
+  btn.appendChild(hint);
+
+  let count = 4;
+  const interval = setInterval(() => {
+    if (hint.parentNode) hint.textContent = count + '…';
+    count--;
+  }, 1000);
+
   secretTimers[n] = setTimeout(() => {
+    clearInterval(interval);
+    if (hint.parentNode) hint.remove();
     if (!unlocked.includes(n)) { unlocked.push(n); saveUnlocked(); }
     applyLockState();
     const banner = document.createElement('div');
@@ -1895,10 +1905,15 @@ function startSecretUnlock(n) {
     document.body.appendChild(banner);
     setTimeout(() => banner.remove(), 2500);
   }, 5000);
+
+  secretTimers[`${n}_interval`] = interval;
 }
+
 function cancelSecretUnlock(n) {
   clearTimeout(secretTimers[n]);
-  if (secretProgress[n]) { secretProgress[n].remove(); secretProgress[n] = null; }
+  clearInterval(secretTimers[`${n}_interval`]);
+  const hint = document.getElementById(`unlock-hint-${n}`);
+  if (hint) hint.remove();
 }
 
 function tryUnlockNext(n) {
