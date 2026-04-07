@@ -38,9 +38,16 @@
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
-    padding: 0 16px;
-    gap: 12px;
+    justify-content: center;
     z-index: 1000;
+  }
+  #topbar-inner {
+    width: 100%;
+    max-width: 720px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
   #hamburger {
     background: none; border: none;
@@ -406,11 +413,13 @@
 
 <!-- TOP BAR -->
 <div id="topbar">
-  <button id="hamburger" onclick="toggleSidebar()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div id="topbar-title">🇷🇼 Kinyarwanda</div>
-  <div id="topbar-class"></div>
+  <div id="topbar-inner">
+    <button id="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div id="topbar-title">🇷🇼 Kinyarwanda</div>
+    <div id="topbar-class"></div>
+  </div>
 </div>
 
 <!-- SIDEBAR OVERLAY -->
@@ -434,27 +443,27 @@
       <span class="menu-label">Class 1 · Intro</span>
       
     </button>
-    <button class="menu-item locked" id="menu-c2" id="atrig2"  onmousedown="startSecretUnlock(2)" onmouseup="cancelSecretUnlock(2)" onmouseleave="cancelSecretUnlock(2)" ontouchstart="startSecretUnlock(2)" ontouchend="cancelSecretUnlock(2)">
+    <button class="menu-item locked" id="menu-c2"  onmousedown="startSecretUnlock(2)" onmouseup="cancelSecretUnlock(2)" onmouseleave="cancelSecretUnlock(2)" ontouchstart="startSecretUnlock(2)" ontouchend="cancelSecretUnlock(2)">
       <span class="menu-badge">C2</span>
       <span class="menu-label">Class 2 · Phrases</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c3" id="atrig3"  onmousedown="startSecretUnlock(3)" onmouseup="cancelSecretUnlock(3)" onmouseleave="cancelSecretUnlock(3)" ontouchstart="startSecretUnlock(3)" ontouchend="cancelSecretUnlock(3)">
+    <button class="menu-item locked" id="menu-c3"  onmousedown="startSecretUnlock(3)" onmouseup="cancelSecretUnlock(3)" onmouseleave="cancelSecretUnlock(3)" ontouchstart="startSecretUnlock(3)" ontouchend="cancelSecretUnlock(3)">
       <span class="menu-badge">C3</span>
       <span class="menu-label">Class 3 · Greetings</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c4" id="atrig4"  onmousedown="startSecretUnlock(4)" onmouseup="cancelSecretUnlock(4)" onmouseleave="cancelSecretUnlock(4)" ontouchstart="startSecretUnlock(4)" ontouchend="cancelSecretUnlock(4)">
+    <button class="menu-item locked" id="menu-c4"  onmousedown="startSecretUnlock(4)" onmouseup="cancelSecretUnlock(4)" onmouseleave="cancelSecretUnlock(4)" ontouchstart="startSecretUnlock(4)" ontouchend="cancelSecretUnlock(4)">
       <span class="menu-badge">C4</span>
       <span class="menu-label">Class 4 · Numbers</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c5" id="atrig5"  onmousedown="startSecretUnlock(5)" onmouseup="cancelSecretUnlock(5)" onmouseleave="cancelSecretUnlock(5)" ontouchstart="startSecretUnlock(5)" ontouchend="cancelSecretUnlock(5)">
+    <button class="menu-item locked" id="menu-c5"  onmousedown="startSecretUnlock(5)" onmouseup="cancelSecretUnlock(5)" onmouseleave="cancelSecretUnlock(5)" ontouchstart="startSecretUnlock(5)" ontouchend="cancelSecretUnlock(5)">
       <span class="menu-badge">C5</span>
       <span class="menu-label">Class 5 · Conversation</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c6" id="atrig6"  onmousedown="startSecretUnlock(6)" onmouseup="cancelSecretUnlock(6)" onmouseleave="cancelSecretUnlock(6)" ontouchstart="startSecretUnlock(6)" ontouchend="cancelSecretUnlock(6)">
+    <button class="menu-item locked" id="menu-c6"  onmousedown="startSecretUnlock(6)" onmouseup="cancelSecretUnlock(6)" onmouseleave="cancelSecretUnlock(6)" ontouchstart="startSecretUnlock(6)" ontouchend="cancelSecretUnlock(6)">
       <span class="menu-badge">C6</span>
       <span class="menu-label">Class 6 · Greetings Conv.</span>
       <span class="menu-lock">🔒</span>
@@ -1868,7 +1877,7 @@ const secretProgress = {};
 function startSecretUnlock(n) {
   if (unlocked.includes(n)) return;
   const cid = pageIds[n];
-  const btn = document.getElementById(`atrig${n}`);
+  const btn = document.getElementById(`menu-${cid}`);
   if (!btn) return;
   const prog = document.createElement('div');
   prog.style.cssText = `position:absolute;bottom:0;left:0;height:3px;background:var(--accent);border-radius:40px;width:0%;transition:width 5s linear`;
