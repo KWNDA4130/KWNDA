@@ -2811,6 +2811,24 @@ function selectLang(l) {
   document.getElementById('lang-' + l).classList.add('active');
 }
 
+function toKinyarwandaNumber(n) {
+  const ones = ['','Rimwe','Kabiri','Gatatu','Kane','Gatanu','Gatandatu','Karindwi','Umunani','Icyenda'];
+  const tens = ['','','Makumyabiri','Mirongo itatu','Mirongo ine','Mirongo itanu','Mirongo itandatu','Mirongo irindwi','Mirongo inani','Mirongo icyenda'];
+  n = parseInt(n);
+  if (isNaN(n) || n < 1) return String(n);
+  if (n === 10) return 'Icumi';
+  if (n === 100) return 'Ijana';
+  if (n < 10) return ones[n];
+  if (n >= 11 && n <= 19) return 'Cumi na ' + ones[n - 10];
+  if (n === 20) return 'Makumyabiri';
+  if (n < 100) {
+    const t = Math.floor(n / 10);
+    const o = n % 10;
+    return tens[t] + (o > 0 ? ' na ' + ones[o] : '');
+  }
+  return String(n); // fallback for > 100
+}
+
 function updatePreview() {
   const name = document.getElementById('w-name').value.trim();
   const country = document.getElementById('w-country').value.trim();
@@ -2840,7 +2858,8 @@ function updatePreview() {
   } else { pci.style.display = 'none'; }
 
   if (ageVal) {
-    pa.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Mfite imyaka ' + ageVal + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + ageVal + ' years old.</span>';
+    const ageRw = toKinyarwandaNumber(ageVal);
+    pa.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Mfite imyaka ' + ageRw + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + ageVal + ' years old.</span>';
     pa.style.display = 'block';
   } else { pa.style.display = 'none'; }
 }
@@ -2873,7 +2892,8 @@ function saveProfile() {
   document.getElementById('intro-city').innerHTML = '<span style="font-size:1.15rem;font-weight:700">Ntuye i ' + city + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I live in ' + city + '.</span>';
   const introAge = document.getElementById('intro-age');
   if (age) {
-    introAge.innerHTML = '<span style="font-size:1.15rem;font-weight:700">Mfite imyaka ' + age + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + age + ' years old.</span>';
+    const ageRw = toKinyarwandaNumber(age);
+    introAge.innerHTML = '<span style="font-size:1.15rem;font-weight:700">Mfite imyaka ' + ageRw + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + age + ' years old.</span>';
     introAge.style.display = 'block';
   } else { introAge.style.display = 'none'; }
   window.scrollTo(0, 0);
