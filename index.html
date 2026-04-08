@@ -175,6 +175,49 @@
     color: var(--text);
   }
 
+  /* WELCOME SCREEN */
+  .welcome-field { margin-bottom: 18px; }
+  .welcome-label {
+    display: block;
+    font-size: .78rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .welcome-input {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .95rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color .2s;
+  }
+  .welcome-input:focus { border-color: var(--accent); }
+  .welcome-input::placeholder { color: var(--muted); }
+  .welcome-input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.5); }
+  .lang-btn, .reason-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .85rem;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .lang-btn.active, .reason-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0d0d0d;
+    font-weight: 600;
+  }
+
   .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.15rem;
@@ -417,45 +460,48 @@
 <!-- SIDEBAR -->
 <nav id="sidebar">
   <div id="sidebar-menu">
-    <button class="menu-item" id="menu-c0"  onclick="navigateTo('c0')" >
-      <span class="menu-badge">C0</span>
-      <span class="menu-label">Class 0 · Pronunciation</span>
-      
+    <button class="menu-item unlocked" id="menu-c0" onclick="navigateTo('c0')">
+      <span class="menu-badge" style="background:var(--accent);color:#0d0d0d;border-color:var(--accent)">★</span>
+      <span class="menu-label">Class 0 · Welcome</span>
     </button>
-    <button class="menu-item" id="menu-c1"  onclick="navigateTo('c1')" >
+    <button class="menu-item locked" id="menu-c1" onmousedown="startSecretUnlock(1)" onmouseup="cancelSecretUnlock(1)" onmouseleave="cancelSecretUnlock(1)" ontouchstart="startSecretUnlock(1)" ontouchend="cancelSecretUnlock(1)">
       <span class="menu-badge">C1</span>
-      <span class="menu-label">Class 1 · Intro</span>
-      
+      <span class="menu-label">Class 1 · Pronunciation</span>
+      <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c2"  onmousedown="startSecretUnlock(2)" onmouseup="cancelSecretUnlock(2)" onmouseleave="cancelSecretUnlock(2)" ontouchstart="startSecretUnlock(2)" ontouchend="cancelSecretUnlock(2)">
+    <button class="menu-item locked" id="menu-c2" onmousedown="startSecretUnlock(2)" onmouseup="cancelSecretUnlock(2)" onmouseleave="cancelSecretUnlock(2)" ontouchstart="startSecretUnlock(2)" ontouchend="cancelSecretUnlock(2)">
       <span class="menu-badge">C2</span>
-      <span class="menu-label">Class 2 · Phrases</span>
+      <span class="menu-label">Class 2 · Intro</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c3"  onmousedown="startSecretUnlock(3)" onmouseup="cancelSecretUnlock(3)" onmouseleave="cancelSecretUnlock(3)" ontouchstart="startSecretUnlock(3)" ontouchend="cancelSecretUnlock(3)">
+    <button class="menu-item locked" id="menu-c3" onmousedown="startSecretUnlock(3)" onmouseup="cancelSecretUnlock(3)" onmouseleave="cancelSecretUnlock(3)" ontouchstart="startSecretUnlock(3)" ontouchend="cancelSecretUnlock(3)">
       <span class="menu-badge">C3</span>
-      <span class="menu-label">Class 3 · Greetings</span>
+      <span class="menu-label">Class 3 · Phrases</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c4"  onmousedown="startSecretUnlock(4)" onmouseup="cancelSecretUnlock(4)" onmouseleave="cancelSecretUnlock(4)" ontouchstart="startSecretUnlock(4)" ontouchend="cancelSecretUnlock(4)">
+    <button class="menu-item locked" id="menu-c4" onmousedown="startSecretUnlock(4)" onmouseup="cancelSecretUnlock(4)" onmouseleave="cancelSecretUnlock(4)" ontouchstart="startSecretUnlock(4)" ontouchend="cancelSecretUnlock(4)">
       <span class="menu-badge">C4</span>
-      <span class="menu-label">Class 4 · Numbers</span>
+      <span class="menu-label">Class 4 · Greetings</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c5"  onmousedown="startSecretUnlock(5)" onmouseup="cancelSecretUnlock(5)" onmouseleave="cancelSecretUnlock(5)" ontouchstart="startSecretUnlock(5)" ontouchend="cancelSecretUnlock(5)">
+    <button class="menu-item locked" id="menu-c5" onmousedown="startSecretUnlock(5)" onmouseup="cancelSecretUnlock(5)" onmouseleave="cancelSecretUnlock(5)" ontouchstart="startSecretUnlock(5)" ontouchend="cancelSecretUnlock(5)">
       <span class="menu-badge">C5</span>
-      <span class="menu-label">Class 5 · Conversation</span>
+      <span class="menu-label">Class 5 · Numbers</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item locked" id="menu-c6"  onmousedown="startSecretUnlock(6)" onmouseup="cancelSecretUnlock(6)" onmouseleave="cancelSecretUnlock(6)" ontouchstart="startSecretUnlock(6)" ontouchend="cancelSecretUnlock(6)">
+    <button class="menu-item locked" id="menu-c6" onmousedown="startSecretUnlock(6)" onmouseup="cancelSecretUnlock(6)" onmouseleave="cancelSecretUnlock(6)" ontouchstart="startSecretUnlock(6)" ontouchend="cancelSecretUnlock(6)">
       <span class="menu-badge">C6</span>
-      <span class="menu-label">Class 6 · Greetings Conv.</span>
+      <span class="menu-label">Class 6 · Conversation</span>
       <span class="menu-lock">🔒</span>
     </button>
-    <button class="menu-item" id="menu-cR"  onclick="navigateTo('cR')" >
+    <button class="menu-item locked" id="menu-c7" onmousedown="startSecretUnlock(7)" onmouseup="cancelSecretUnlock(7)" onmouseleave="cancelSecretUnlock(7)" ontouchstart="startSecretUnlock(7)" ontouchend="cancelSecretUnlock(7)">
+      <span class="menu-badge">C7</span>
+      <span class="menu-label">Class 7 · Greetings Conv.</span>
+      <span class="menu-lock">🔒</span>
+    </button>
+    <button class="menu-item unlocked" id="menu-cR" onclick="navigateTo('cR')">
       <span class="menu-badge">★</span>
       <span class="menu-label">⭐ Review All</span>
-      
     </button>
   </div>
 </nav>
@@ -464,7 +510,75 @@
 <main id="main-content">
 
 <section id="c0" class="page" style="display:block">
-  <h2 class="page-title">Class 0 · Pronunciation</h2>
+  <h2 class="page-title">Welcome 🇷🇼</h2>
+
+  <div style="max-width:480px;margin:0 auto">
+
+    <p style="color:var(--text);font-size:.95rem;line-height:1.6;margin-bottom:20px;font-weight:500">
+      We'll use this to make you speak real Kinyarwanda from day 1.
+    </p>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:24px;font-size:.76rem;color:var(--muted)">
+      🔒 Stays in your browser only — nothing is collected or sent anywhere.
+    </div>
+
+    <!-- Live preview -->
+    <div id="live-preview" style="background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:24px;min-height:60px;display:none">
+      <div style="font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px">You in Kinyarwanda</div>
+      <div id="prev-name" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
+      <div id="prev-country" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
+      <div id="prev-city" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
+      <div id="prev-age" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);display:none"></div>
+    </div>
+
+    <div class="welcome-field">
+      <label class="welcome-label">First Name *</label>
+      <input class="welcome-input" id="w-name" type="text" placeholder="Your first name" oninput="updatePreview()" />
+    </div>
+    <div class="welcome-field">
+      <label class="welcome-label">Country *</label>
+      <input class="welcome-input" id="w-country" type="text" placeholder="e.g. Canada" oninput="updatePreview()" />
+    </div>
+    <div class="welcome-field">
+      <label class="welcome-label">City *</label>
+      <input class="welcome-input" id="w-city" type="text" placeholder="e.g. Montreal" oninput="updatePreview()" />
+    </div>
+    <div class="welcome-field">
+      <label class="welcome-label">Age <span style="color:var(--muted);font-size:.75rem;font-weight:400">(optional — used to practice numbers)</span></label>
+      <input class="welcome-input" id="w-age" type="number" placeholder="Your age" min="1" max="120" oninput="updatePreview()" />
+    </div>
+    <div class="welcome-field">
+      <label class="welcome-label">Your Language</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="lang-btn active" id="lang-en" onclick="selectLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" id="lang-fr" onclick="selectLang('fr')">🇫🇷 French</button>
+        <button class="lang-btn" id="lang-other" onclick="selectLang('other')">Other</button>
+      </div>
+    </div>
+
+    <div id="profile-msg" style="font-size:.85rem;min-height:20px;margin-bottom:10px;text-align:center"></div>
+    <button id="start-btn" onclick="saveProfile()" style="width:100%;padding:16px;background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">
+      Start Learning →
+    </button>
+  </div>
+
+  <!-- Intro screen shown after saving -->
+  <div id="intro-screen" style="display:none;max-width:480px;margin:32px auto 0">
+    <p style="font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:16px">This is you in Kinyarwanda</p>
+    <div style="background:var(--card2);border:1px solid var(--accent2);border-radius:14px;padding:24px 22px;margin-bottom:24px">
+      <div id="intro-name" style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);margin-bottom:10px"></div>
+      <div id="intro-country" style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);margin-bottom:10px"></div>
+      <div id="intro-city" style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);margin-bottom:10px"></div>
+      <div id="intro-age" style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);display:none"></div>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:20px">Say these out loud before moving on.</p>
+    <button onclick="navigateTo('c1')" style="width:100%;padding:16px;background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">
+      Let's go →
+    </button>
+  </div>
+</section>
+
+<section id="c1" class="page" style="display:none">
+  <h2 class="page-title">Class 1 · Pronunciation</h2>
 
   <div class="tip">💡 Kinyarwanda is very consistent — once you learn the rules, every word sounds exactly as written. No silent letters, no exceptions.</div>
 
@@ -556,8 +670,8 @@
   </div>
 
   <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c0-score">0</span> / <span id="c0-total">0</span></div>
-  <div id="c0-quiz"></div>
+  <div class="quiz-score">Score: <span id="c1-score">0</span> / <span id="c1-total">0</span></div>
+  <div id="c1-quiz"></div>
   <button class="reset-btn" onclick="resetQuiz(0)">↺ Restart</button>
 
 
@@ -566,8 +680,8 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c1" class="page" style="display:none">
-  <h2 class="page-title">Class 1 · Intro</h2>
+<section id="c2" class="page" style="display:none">
+  <h2 class="page-title">Class 2 · Intro</h2>
 
   <div class="tip">💡 Polite/plural shown <strong style="color:var(--accent2)">first</strong>. Informal dimmed below.</div>
 
@@ -579,8 +693,8 @@
 
   <div class="phrase-card"><div class="num">2</div><div>
     <div class="en">My name is…</div>
-    <div class="rw">Amazina yanjye ni [your name] <span class="chip plural">polite</span></div>
-    <div class="alt">Nitwa [your name] <span class="chip informal">casual</span></div>
+    <div class="rw">Amazina yanjye ni <span class="u-name">[your name]</span> <span class="chip plural">polite</span></div>
+    <div class="alt">Nitwa <span class="u-name">[your name]</span> <span class="chip informal">casual</span></div>
   </div></div>
 
   <div class="phrase-card"><div class="num">3</div><div>
@@ -596,8 +710,8 @@
   </div></div>
 
   <div class="phrase-card"><div class="num">5</div><div>
-    <div class="en">I am [age] years old</div>
-    <div class="rw">Mfite imyaka [age]</div>
+    <div class="en">I am <span class="u-age">[age]</span> years old</div>
+    <div class="rw">Mfite imyaka <span class="u-age">[age]</span></div>
   </div></div>
 
   <div class="phrase-card"><div class="num">6</div><div>
@@ -636,8 +750,8 @@
   </div>
 
   <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c1-score">0</span> / <span id="c1-total">0</span></div>
-  <div id="c1-quiz"></div>
+  <div class="quiz-score">Score: <span id="c2-score">0</span> / <span id="c2-total">0</span></div>
+  <div id="c2-quiz"></div>
   <button class="reset-btn" onclick="resetQuiz(1)">↺ Restart</button>
 
 
@@ -646,8 +760,8 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c2" class="page" style="display:none">
-  <h2 class="page-title">Class 2 · Phrases</h2>
+<section id="c3" class="page" style="display:none">
+  <h2 class="page-title">Class 3 · Phrases</h2>
 
   <div class="tip">💡 Polite/plural <strong style="color:var(--accent2)">first</strong> — use with elders, strangers, and in formal settings.</div>
 
@@ -663,7 +777,7 @@
         </div>
         <div class="flip-hint">tap to see answer ↩</div>
       </div>
-      <div class="pcf-back"><div><div class="answer-label">How to answer</div><div class="answer-rw">Amazina yanjye ni [name]</div><div class="answer-en">My name is [name]</div></div></div>
+      <div class="pcf-back"><div><div class="answer-label">How to answer</div><div class="answer-rw">Amazina yanjye ni <span class="u-name">[your name]</span></div><div class="answer-en">My name is <span class="u-name">[your name]</span></div></div></div>
     </div>
   </div>
 
@@ -694,7 +808,7 @@
         </div>
         <div class="flip-hint">tap to see answer ↩</div>
       </div>
-      <div class="pcf-back"><div><div class="answer-label">How to answer</div><div class="answer-rw">Ntuye I [city] muri [country]</div><div class="answer-en">I live in [city], [country]</div></div></div>
+      <div class="pcf-back"><div><div class="answer-label">How to answer</div><div class="answer-rw">Ntuye I <span class="u-city">[your city]</span> muri <span class="u-country">[your country]</span></div><div class="answer-en">I live in <span class="u-city">[your city]</span>, <span class="u-country">[your country]</span></div></div></div>
     </div>
   </div>
 
@@ -791,8 +905,8 @@
   </div>
 
   <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c2-score">0</span> / <span id="c2-total">0</span></div>
-  <div id="c2-quiz"></div>
+  <div class="quiz-score">Score: <span id="c3-score">0</span> / <span id="c3-total">0</span></div>
+  <div id="c3-quiz"></div>
   <button class="reset-btn" onclick="resetQuiz(2)">↺ Restart</button>
 
 
@@ -801,8 +915,8 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c3" class="page" style="display:none">
-  <h2 class="page-title">Class 3 · Greetings</h2>
+<section id="c4" class="page" style="display:none">
+  <h2 class="page-title">Class 4 · Greetings</h2>
 
   <div class="tip">💡 Kinyarwanda has specific greetings for each time of day — and separate phrases for <em>greeting</em> vs. <em>leaving</em>.</div>
 
@@ -920,8 +1034,8 @@
   </div>
 
   <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c3-score">0</span> / <span id="c3-total">0</span></div>
-  <div id="c3-quiz"></div>
+  <div class="quiz-score">Score: <span id="c4-score">0</span> / <span id="c4-total">0</span></div>
+  <div id="c4-quiz"></div>
   <button class="reset-btn" onclick="resetQuiz(3)">↺ Restart</button>
 
 
@@ -930,8 +1044,8 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c4" class="page" style="display:none">
-  <h2 class="page-title">Class 4 · Numbers</h2>
+<section id="c5" class="page" style="display:none">
+  <h2 class="page-title">Class 5 · Numbers</h2>
 
   <div class="tip">💡 To say your age: <strong>Mfite imyaka [number]</strong> — e.g. "Mfite imyaka makumyabiri" = I am 20 years old.</div>
 
@@ -1004,8 +1118,8 @@
   </div>
 
   <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c4-score">0</span> / <span id="c4-total">0</span></div>
-  <div id="c4-quiz"></div>
+  <div class="quiz-score">Score: <span id="c5-score">0</span> / <span id="c5-total">0</span></div>
+  <div id="c5-quiz"></div>
   <button class="reset-btn" onclick="resetQuiz(4)">↺ Restart</button>
 
 
@@ -1014,8 +1128,8 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c5" class="page" style="display:none">
-  <h2 class="page-title">Class 5 · Conversation</h2>
+<section id="c6" class="page" style="display:none">
+  <h2 class="page-title">Class 6 · Conversation</h2>
 
   <div class="tip">💡 Each exchange has 3 lines: question → teacher answers + asks you back → <strong style="color:var(--accent)">your turn</strong> to answer with your own details.</div>
 
@@ -1023,7 +1137,7 @@
   <div class="phrase-card"><div class="num">1</div><div>
     <div class="en">I / Me (emphatic)</div>
     <div class="rw">Njyewe</div>
-    <div class="alt" style="color:var(--muted);font-size:.78rem;margin-top:4px">Standalone · e.g. Njyewe nitwa [your name]</div>
+    <div class="alt" style="color:var(--muted);font-size:.78rem;margin-top:4px">Standalone · e.g. Njyewe nitwa <span class="u-name">[your name]</span></div>
   </div></div>
   <div class="phrase-card"><div class="num">2</div><div>
     <div class="en">We / Us (emphatic)</div>
@@ -1067,16 +1181,16 @@
       <div class="bubble-icon">👤</div>
       <div class="bubble-content">
         <div class="bubble-label">Answer + ask back</div>
-        <div class="bubble-rw">Nitwa [name]. Wowe witwa nde?</div>
-        <div class="bubble-en">My name is [name]. And you, what's your name?</div>
+        <div class="bubble-rw">Nitwa <span class="u-name">[your name]</span>. Wowe witwa nde?</div>
+        <div class="bubble-en">My name is <span class="u-name">[your name]</span>. And you, what's your name?</div>
       </div>
     </div>
     <div class="bubble-row">
       <div class="bubble-icon">🧑</div>
       <div class="bubble-content">
         <div class="bubble-label">Your turn</div>
-        <div class="bubble-rw your-turn">Nitwa [your name].</div>
-        <div class="bubble-en">My name is [your name].</div>
+        <div class="bubble-rw your-turn">Nitwa <span class="u-name">[your name]</span>.</div>
+        <div class="bubble-en">My name is <span class="u-name">[your name]</span>.</div>
       </div>
     </div>
   </div>
@@ -1096,16 +1210,16 @@
       <div class="bubble-icon">👤</div>
       <div class="bubble-content">
         <div class="bubble-label">Answer + ask back</div>
-        <div class="bubble-rw">Amazina yanjye ni [name]. Mwebwe amazina yanyu ni ayahe?</div>
-        <div class="bubble-en">My name is [name]. And you all, what are your names?</div>
+        <div class="bubble-rw">Amazina yanjye ni <span class="u-name">[your name]</span>. Mwebwe amazina yanyu ni ayahe?</div>
+        <div class="bubble-en">My name is <span class="u-name">[your name]</span>. And you all, what are your names?</div>
       </div>
     </div>
     <div class="bubble-row">
       <div class="bubble-icon">🧑</div>
       <div class="bubble-content">
         <div class="bubble-label">Your turn</div>
-        <div class="bubble-rw your-turn">Amazina yanjye ni [your name].</div>
-        <div class="bubble-en">My name is [your name].</div>
+        <div class="bubble-rw your-turn">Amazina yanjye ni <span class="u-name">[your name]</span>.</div>
+        <div class="bubble-en">My name is <span class="u-name">[your name]</span>.</div>
       </div>
     </div>
   </div>
@@ -1125,16 +1239,16 @@
       <div class="bubble-icon">👤</div>
       <div class="bubble-content">
         <div class="bubble-label">Answer + ask back</div>
-        <div class="bubble-rw">Nturuka muri [country]. Wowe uturuka he?</div>
-        <div class="bubble-en">I am from [country]. And you, where are you from?</div>
+        <div class="bubble-rw">Nturuka muri <span class="u-country">[your country]</span>. Wowe uturuka he?</div>
+        <div class="bubble-en">I am from <span class="u-country">[your country]</span>. And you, where are you from?</div>
       </div>
     </div>
     <div class="bubble-row">
       <div class="bubble-icon">🧑</div>
       <div class="bubble-content">
         <div class="bubble-label">Your turn</div>
-        <div class="bubble-rw your-turn">Nturuka muri [your country].</div>
-        <div class="bubble-en">I am from [your country].</div>
+        <div class="bubble-rw your-turn">Nturuka muri <span class="u-country">[your country]</span>.</div>
+        <div class="bubble-en">I am from <span class="u-country">[your country]</span>.</div>
       </div>
     </div>
   </div>
@@ -1154,16 +1268,16 @@
       <div class="bubble-icon">👤</div>
       <div class="bubble-content">
         <div class="bubble-label">Answer + ask back</div>
-        <div class="bubble-rw">Natwe duturuka muri [country]. Mwebwe muturuka he?</div>
-        <div class="bubble-en">We are from [country]. And you all, where are you from?</div>
+        <div class="bubble-rw">Natwe duturuka muri <span class="u-country">[your country]</span>. Mwebwe muturuka he?</div>
+        <div class="bubble-en">We are from <span class="u-country">[your country]</span>. And you all, where are you from?</div>
       </div>
     </div>
     <div class="bubble-row">
       <div class="bubble-icon">🧑</div>
       <div class="bubble-content">
         <div class="bubble-label">Your turn</div>
-        <div class="bubble-rw your-turn">Natwe duturuka muri [your country].</div>
-        <div class="bubble-en">We are from [your country].</div>
+        <div class="bubble-rw your-turn">Natwe duturuka muri <span class="u-country">[your country]</span>.</div>
+        <div class="bubble-en">We are from <span class="u-country">[your country]</span>.</div>
       </div>
     </div>
   </div>
@@ -1183,16 +1297,16 @@
       <div class="bubble-icon">👤</div>
       <div class="bubble-content">
         <div class="bubble-label">Answer + ask back</div>
-        <div class="bubble-rw">Ntuye I [city] muri [country]. Wowe utuye he?</div>
-        <div class="bubble-en">I live in [city], [country]. And you, where do you live?</div>
+        <div class="bubble-rw">Ntuye I <span class="u-city">[your city]</span> muri <span class="u-country">[your country]</span>. Wowe utuye he?</div>
+        <div class="bubble-en">I live in <span class="u-city">[your city]</span>, <span class="u-country">[your country]</span>. And you, where do you live?</div>
       </div>
     </div>
     <div class="bubble-row">
       <div class="bubble-icon">🧑</div>
       <div class="bubble-content">
         <div class="bubble-label">Your turn</div>
-        <div class="bubble-rw your-turn">Ntuye I [your city] muri [your country].</div>
-        <div class="bubble-en">I live in [your city], [your country].</div>
+        <div class="bubble-rw your-turn">Ntuye I <span class="u-city">[your city]</span> muri <span class="u-country">[your country]</span>.</div>
+        <div class="bubble-en">I live in <span class="u-city">[your city]</span>, <span class="u-country">[your country]</span>.</div>
       </div>
     </div>
   </div>
@@ -1212,16 +1326,16 @@
       <div class="bubble-icon">👤</div>
       <div class="bubble-content">
         <div class="bubble-label">Answer + ask back</div>
-        <div class="bubble-rw">Natwe dutuye muri [country]. Mwebwe mutuye he?</div>
-        <div class="bubble-en">We live in [country]. And you all, where do you live?</div>
+        <div class="bubble-rw">Natwe dutuye muri <span class="u-country">[your country]</span>. Mwebwe mutuye he?</div>
+        <div class="bubble-en">We live in <span class="u-country">[your country]</span>. And you all, where do you live?</div>
       </div>
     </div>
     <div class="bubble-row">
       <div class="bubble-icon">🧑</div>
       <div class="bubble-content">
         <div class="bubble-label">Your turn</div>
-        <div class="bubble-rw your-turn">Natwe dutuye muri [your country].</div>
-        <div class="bubble-en">We live in [your country].</div>
+        <div class="bubble-rw your-turn">Natwe dutuye muri <span class="u-country">[your country]</span>.</div>
+        <div class="bubble-en">We live in <span class="u-country">[your country]</span>.</div>
       </div>
     </div>
   </div>
@@ -1345,8 +1459,8 @@
   <!-- QUIZ -->
   <p class="section-title">🧠 Conversation Quiz</p>
   <p style="color:#6fa3d4;font-size:.82rem;margin-bottom:14px;">Pick the right response to keep the conversation going.</p>
-  <div class="quiz-score">Score: <span id="c5-score">0</span> / <span id="c5-total">0</span></div>
-  <div id="c5-quiz"></div>
+  <div class="quiz-score">Score: <span id="c6-score">0</span> / <span id="c6-total">0</span></div>
+  <div id="c6-quiz"></div>
   <button class="reset-btn" onclick="resetConvoQuiz()">↺ Restart</button>
 
 
@@ -1355,7 +1469,7 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c6" class="page" style="display:none">
+<section id="c7" class="page" style="display:none">
   <h2 class="page-title">Class 6 · Greetings Conv.</h2>
 
   <div class="tip">💡 <strong>Waramutse / Wiriwe</strong> = singular/informal · <strong>Mwaramutse / Mwiriwe</strong> = polite/plural. <strong>Nawe</strong> = and you? (singular) · <strong>Namwe</strong> = and y'all (polite/plural)</div>
@@ -1654,8 +1768,8 @@
   <div class="divider"></div>
   <p class="section-title">🧠 Conversation Quiz</p>
   <p style="color:#6fa3d4;font-size:.82rem;margin-bottom:14px;">Pick the right response to keep the conversation going.</p>
-  <div class="quiz-score">Score: <span id="c6-score">0</span> / <span id="c6-total">0</span></div>
-  <div id="c6-quiz"></div>
+  <div class="quiz-score">Score: <span id="c7-score">0</span> / <span id="c7-total">0</span></div>
+  <div id="c7-quiz"></div>
   <button class="reset-btn" onclick="resetConvoQuiz6()">↺ Restart</button>
 
 
@@ -1698,7 +1812,7 @@
 <script>
 
 const fcData = {
-  0: [
+  1: [
     { q: "How is 'A' pronounced?",         a: "Like 'ah' in father",          s: "e.g. Na, Amazina" },
     { q: "How is 'E' pronounced?",         a: "Like 'eh' in bed",             s: "e.g. Neza, Meze" },
     { q: "How is 'CY' pronounced?",        a: "Like 'ch' in cheek",           s: "e.g. Cyiza" },
@@ -1708,7 +1822,7 @@ const fcData = {
     { q: "Syllables in 'Nishimiye'?",      a: "Ni · shi · mi · ye",           s: "4 syllables" },
     { q: "Are there silent letters?",      a: "No — every letter is spoken",  s: "biggest rule!" },
   ],
-  1: [
+  2: [
     { q: "Hello! (polite)",             a: "Muraho neza!",                  s: "casual: Bite!" },
     { q: "My name is… (polite)",        a: "Amazina yanjye ni [name]",      s: "casual: Nitwa [name]" },
     { q: "I am from… (polite)",         a: "Nturuka muri [place]",          s: "casual: Nva…" },
@@ -1717,7 +1831,7 @@ const fcData = {
     { q: "Yes",                         a: "Yego",                          s: "" },
     { q: "No",                          a: "Oya",                           s: "" },
   ],
-  2: [
+  3: [
     { q: "What's your name? (polite)",  a: "Mwitwa bande?",                 s: "casual: Witwa nde?" },
     { q: "Where are you from? (polite)",a: "Muturuka he?",                  s: "casual: Uturuka he?" },
     { q: "Where do you live? (polite)", a: "Mutuye he?",                    s: "casual: Utuye he?" },
@@ -1727,7 +1841,7 @@ const fcData = {
     { q: "I am happy to know you",      a: "Nishimiye kukumenya",           s: "plural: Kubamenya" },
     { q: "I am happy to see you",       a: "Nishimiye kukubona",            s: "plural: Kubabona" },
   ],
-  3: [
+  4: [
     { q: "Morning greeting",            a: "Mwaramutse neza?",              s: "↩ Yego, mwaramutse neza!" },
     { q: "Afternoon greeting",          a: "Mwiriwe neza?",                 s: "↩ Yego, mwiriwe neza!" },
     { q: "Evening greeting",            a: "Mwiriwe mute?",                 s: "↩ Yego, mwiriwe neza" },
@@ -1740,7 +1854,7 @@ const fcData = {
     { q: "Have a good night",           a: "Mugire Ijoro ryiza",            s: "leaving wish" },
     { q: "Thank you (polite)",          a: "Murakoze",                      s: "casual: Urakoze" },
   ],
-  4: [
+  5: [
     { q: "1",  a: "Rimwe",           s: "REEM-weh" },
     { q: "2",  a: "Kabiri",          s: "kah-BEE-ree" },
     { q: "3",  a: "Gatatu",          s: "gah-TAH-too" },
@@ -1752,7 +1866,7 @@ const fcData = {
     { q: "100",a: "Ijana",           s: "ee-JAH-nah" },
     { q: "15", a: "Cumi na gatanu",  s: "Cumi na + 5" },
   ],
-  5: [
+  6: [
     { q: "I / Me (emphatic)",                    a: "Njyewe",              s: "standalone · Njyewe nitwa [your name]" },
     { q: "We / Us (emphatic)",                   a: "Twebwe",              s: "standalone · Twebwe duturuka muri Canada" },
     { q: "Me too / As for me (in responses)",    a: "Nanjye",              s: "e.g. Nanjye nimeza" },
@@ -1767,7 +1881,7 @@ const fcData = {
 };
 
 const quizData = {
-  0: [
+  1: [
     { q: "How is the vowel 'A' pronounced?",        opts: ["Like 'ay' in say", "Like 'ah' in father", "Like 'a' in cat", "Like 'aw' in saw"],       ans: 1 },
     { q: "How is the vowel 'I' pronounced?",        opts: ["Like 'ih' in sit", "Like 'eye'", "Like 'ee' in see", "Like 'ai' in air"],                ans: 2 },
     { q: "How is 'CY' pronounced?",                 opts: ["Like 'sy'", "Like 'ky'", "Like 'ch' in cheek", "Like 'cy' in cycle"],                   ans: 2 },
@@ -1779,7 +1893,7 @@ const quizData = {
     { q: "Vowels in Kinyarwanda…",                  opts: ["Blend together like English", "Are sometimes silent", "Each get their own beat", "Change based on context"], ans: 2 },
     { q: "'NZ' sounds like…",                       opts: ["Just 'z'", "Just 'n'", "Nasal n + z", "'nts'"],                                        ans: 2 },
   ],
-  1: [
+  2: [
     { q: "How do you say 'Hello' politely?",               opts: ["Bite!", "Uraho!", "Muraho neza!", "Meze neza"],                          ans: 2 },
     { q: "Polite 'My name is…'",                           opts: ["Nitwa [name]", "Amazina yanjye ni [name]", "Ndi [name]", "Bite!"],       ans: 1 },
     { q: "Polite 'I am from…'",                            opts: ["Nva [place]", "Mba [place]", "Nturuka muri [place]", "Ndi [place]"],     ans: 2 },
@@ -1792,7 +1906,7 @@ const quizData = {
     { q: "'Ndi' means…",                                   opts: ["I live", "I am from", "I am", "I have"],                                ans: 2 },
     { q: "'Nturuka muri Canada' means…",                   opts: ["I live in Canada", "I am from Canada", "I visit Canada", "I like Canada"], ans: 1 },
   ],
-  2: [
+  3: [
     { q: "Polite 'What's your name?'",                     opts: ["Witwa nde?", "Amazina yanyu ni ayahe?", "Amazina yawe?", "Nitwa nde?"],    ans: 1 },
     { q: "Polite 'Where are you from?'",                   opts: ["Uturuka he?", "Nturuka he?", "Muturuka he?", "Duturuka he?"],           ans: 2 },
     { q: "Polite 'Where do you live?'",                    opts: ["Utuye he?", "Wowe uturukas he?", "Mutuye he?", "Ntuye he?"],            ans: 2 },
@@ -1807,7 +1921,7 @@ const quizData = {
     { q: "'I am happy to know you'",                       opts: ["Nishimiye kukubona", "Kubabona", "Kubamenya", "Nishimiye kukumenya"],   ans: 3 },
     { q: "'I am happy to see you'",                        opts: ["Nishimiye kukumenya", "Kubamenya", "Nishimiye kukubona", "Kubabona"],   ans: 2 },
   ],
-  3: [
+  4: [
     { q: "Morning greeting:",                              opts: ["Mwiriwe neza?", "Murabeho neza.", "Mwaramutse neza?", "Bite!"],         ans: 2 },
     { q: "'Mwaramutse neza?' means…",                      opts: ["Is your day going well?", "Was your day going well?", "Did you wake up well?", "Stay safe"], ans: 2 },
     { q: "Response to 'Mwaramutse neza?'",                 opts: ["Murakoze", "Mwiriwe neza", "Yego, mwaramutse neza!", "Tumeze neza"],   ans: 2 },
@@ -1826,7 +1940,7 @@ const quizData = {
     { q: "'Have a good night'",                            opts: ["Mugire Igitondo cyiza", "Mugire umunsi mwiza", "Mugire Umugoroba mwiza", "Mugire Ijoro ryiza"], ans: 3 },
     { q: "Polite 'Thank you'",                             opts: ["Urakoze", "Nawe", "Namwe", "Murakoze"],                              ans: 3 },
   ],
-  4: [
+  5: [
     { q: "What is 1 in Kinyarwanda?",   opts: ["Kabiri", "Gatatu", "Rimwe", "Kane"],                              ans: 2 },
     { q: "What is 2 in Kinyarwanda?",   opts: ["Rimwe", "Kabiri", "Gatatu", "Kane"],                              ans: 1 },
     { q: "What is 3 in Kinyarwanda?",   opts: ["Kane", "Rimwe", "Gatanu", "Gatatu"],                              ans: 3 },
@@ -1850,7 +1964,7 @@ const quizData = {
     { q: "Pattern for 30–90:",          opts: ["Ijana + number", "Icumi + number", "Mirongo + number word", "Cumi na + number"], ans: 2 },
     { q: "'Mfite imyaka makumyabiri' means…", opts: ["I am 10", "I am 20", "I am 30", "I am 100"],               ans: 1 },
   ],
-  5: [
+  6: [
     { q: "'Njyewe' means…",                      opts: ["Me too / As for me", "I / Me (emphatic)", "And you?", "We (emphatic)"],               ans: 1 },
     { q: "'Twebwe' means…",                      opts: ["Us too / As for us", "And you all?", "We / Us (emphatic)", "Me (emphatic)"],          ans: 2 },
     { q: "'Wowe?' means…",                       opts: ["We too", "And you? (singular)", "And you? (polite)", "Me too"],                      ans: 1 },
@@ -1865,7 +1979,7 @@ const quizData = {
     { q: "After answering, how do you ask back (singular)?", opts: ["Mwebwe?", "Natwe?", "Nanjye?", "Wowe?"],                                 ans: 3 },
     { q: "After answering, how do you ask back (polite)?",   opts: ["Wowe?", "Nanjye?", "Mwebwe?", "Natwe?"],                                 ans: 2 },
   ],
-  6: [
+  7: [
     { q: "'Waramutse neza?' is used for…",                   opts: ["Polite/plural", "Singular/informal", "Evening only", "Goodbye"],        ans: 1 },
     { q: "'Mwaramutse neza?' is used for…",                  opts: ["Singular/informal", "Polite/plural", "Evening only", "Goodbye"],        ans: 1 },
     { q: "Singular morning greeting response:",              opts: ["Yego natwe twaramutse neza.", "Yego nanjye naramutse neza.", "Niriwe neza.", "Murakoze."], ans: 1 },
@@ -1884,9 +1998,9 @@ const quizData = {
 // ══════════════════════════════
 // NAVIGATION — Hamburger Sidebar
 // ══════════════════════════════
-const pageIds = ['c0','c1','c2','c3','c4','c5','c6','cR'];
-const pageLabels = ['Class 0 · Pronunciation','Class 1 · Intro','Class 2 · Phrases','Class 3 · Greetings','Class 4 · Numbers','Class 5 · Conversation','Class 6 · Greetings Conv.','⭐ Review All'];
-let currentPage = 'c0';
+const pageIds = ['c0','c1','c2','c3','c4','c5','c6','c7','cR'];
+const pageLabels = ['Class 0 · Welcome','Class 1 · Pronunciation','Class 2 · Intro','Class 3 · Phrases','Class 4 · Greetings','Class 5 · Numbers','Class 6 · Conversation','Class 7 · Greetings Conv.','⭐ Review All'];
+let currentPage = 'c1';
 
 function toggleSidebar() { document.body.classList.toggle('sidebar-open'); }
 function closeSidebar() { document.body.classList.remove('sidebar-open'); }
@@ -1912,16 +2026,23 @@ function navigateTo(id) {
   // Scroll to top
   window.scrollTo(0, 0);
   closeSidebar();
+  // If navigating back to c0, reset to form view
+  if (id === 'c0') {
+    const form = document.querySelector('#c0 > div:first-of-type');
+    const intro = document.getElementById('intro-screen');
+    if (form) form.style.display = 'block';
+    if (intro) intro.style.display = 'none';
+  }
   // Rebuild review if needed
   if (id === 'cR') { buildReviewFC(); buildReviewQuiz(); }
 }
 
 // LOCK STATE — persisted in localStorage
-const unlocked = JSON.parse(localStorage.getItem('kiny_unlocked') || '[1]');
+const unlocked = JSON.parse(localStorage.getItem('kiny_unlocked') || '[]');
 function saveUnlocked() { localStorage.setItem('kiny_unlocked', JSON.stringify(unlocked)); }
 
 function applyLockState() {
-  [2,3,4,5,6].forEach(n => {
+  [1,2,3,4,5,6,7].forEach(n => {
     const cid = pageIds[n];
     const menuItem = document.getElementById(`menu-${cid}`);
     const lock = menuItem ? menuItem.querySelector('.menu-lock') : null;
@@ -1987,7 +2108,7 @@ function cancelSecretUnlock(n) {
 
 function tryUnlockNext(n) {
   const next = n + 1;
-  if (!unlocked.includes(next) && next <= 6) {
+  if (!unlocked.includes(next) && next <= 7) {
     unlocked.push(next);
     saveUnlocked();
     applyLockState();
@@ -2000,7 +2121,7 @@ function tryUnlockNext(n) {
 }
 
 // FLASHCARDS
-const fcIndex = {0:0,1:0,2:0,3:0,4:0,5:0,6:0};
+const fcIndex = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
 function renderFC(n) {
   if (!document.getElementById(`fc${n}`)) return;
   const c = fcData[n][fcIndex[n]];
@@ -2021,9 +2142,9 @@ function prevFC(n) {
 }
 
 // QUIZ — one question at a time
-const qScore = {0:0,1:0,2:0,3:0,4:0,5:0,6:0};
-const qTotal = {0:0,1:0,2:0,3:0,4:0,5:0,6:0};
-const qCurrent = {0:0,1:0,2:0,3:0,4:0,5:0,6:0};
+const qScore = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+const qTotal = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+const qCurrent = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
 
 function buildQuiz(n) {
   qScore[n]=0; qTotal[n]=0; qCurrent[n]=0;
@@ -2048,7 +2169,7 @@ function renderQuestion(n) {
           ${perfect ? 'Perfect score!' : `${qScore[n]} / ${total} correct`}
         </div>
         <div style="font-size:.88rem;color:#6fa3d4;margin-bottom:${perfect && n < 6 ? '20px' : '4px'}">${pct}% — ${perfect ? 'Next class unlocked! 🎉' : 'Try again to unlock the next class.'}</div>
-        ${perfect && n < 6 ? `<button onclick="navigateTo('${pageIds[n+1]}')" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:9px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;">Proceed to Class ${n+1} →</button>` : ''}
+        ${perfect && n < 7 ? `<button onclick="navigateTo('${pageIds[n+1]}')" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:9px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;">Proceed to Class ${n+1} →</button>` : ''}
       </div>`;
     if (perfect) tryUnlockNext(n);
     if (perfect) launchConfetti();
@@ -2213,7 +2334,7 @@ function renderConvoQuestion() {
           ${perfect ? 'Perfect conversation!' : (convoScore + ' / ' + total + ' correct')}
         </div>
         <div style="font-size:.88rem;color:#6fa3d4;margin-bottom:${perfect ? '20px' : '4px'}">${Math.round(convoScore/total*100)}%</div>
-        ${perfect ? '<button onclick="navigateTo(\'c6\')" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:9px;padding:12px 28px;font-family:\'DM Sans\',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;">Proceed to Class 6 →</button>' : ''}
+        ${perfect ? '<button onclick="navigateTo(\'c7\')" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:9px;padding:12px 28px;font-family:\'DM Sans\',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;">Proceed to Class 7 →</button>' : ''}
       </div>`;
     if (perfect) { launchConfetti(); tryUnlockNext(5); }
     return;
@@ -2576,7 +2697,7 @@ let reviewFC = [];
 let reviewFCIndex = 0;
 
 function buildReviewFC() {
-  const classes = getUnlockedClasses().filter(n => n !== 5);
+  const classes = getUnlockedClasses().filter(n => n !== 6 && n !== 7);
   const all = classes.flatMap(n => fcData[n]);
   reviewFC = shuffle(all);
   reviewFCIndex = 0;
@@ -2678,9 +2799,119 @@ function checkReviewAns(btn, qi, chosen, correct) {
 
 function resetReviewQuiz() { buildReviewQuiz(); }
 
+// ══════════════════════════════
+// USER PROFILE
+// ══════════════════════════════
+let userProfile = JSON.parse(localStorage.getItem('kiny_profile') || 'null');
+let selectedLang = 'en';
+
+function selectLang(l) {
+  selectedLang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('lang-' + l).classList.add('active');
+}
+
+function updatePreview() {
+  const name = document.getElementById('w-name').value.trim();
+  const country = document.getElementById('w-country').value.trim();
+  const city = document.getElementById('w-city').value.trim();
+  const ageVal = document.getElementById('w-age').value.trim();
+  const preview = document.getElementById('live-preview');
+  const hasAny = name || country || city;
+  preview.style.display = hasAny ? 'block' : 'none';
+  const pn = document.getElementById('prev-name');
+  const pc = document.getElementById('prev-country');
+  const pci = document.getElementById('prev-city');
+  const pa = document.getElementById('prev-age');
+
+  if (name) {
+    pn.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Nitwa ' + name + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">My name is ' + name + '.</span>';
+    pn.style.display = 'block';
+  } else { pn.style.display = 'none'; }
+
+  if (country) {
+    pc.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Nturuka muri ' + country + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am from ' + country + '.</span>';
+    pc.style.display = 'block';
+  } else { pc.style.display = 'none'; }
+
+  if (city) {
+    pci.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Ntuye i ' + city + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I live in ' + city + '.</span>';
+    pci.style.display = 'block';
+  } else { pci.style.display = 'none'; }
+
+  if (ageVal) {
+    pa.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Mfite imyaka ' + ageVal + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + ageVal + ' years old.</span>';
+    pa.style.display = 'block';
+  } else { pa.style.display = 'none'; }
+}
+
+function saveProfile() {
+  const name = document.getElementById('w-name').value.trim();
+  const city = document.getElementById('w-city').value.trim();
+  const country = document.getElementById('w-country').value.trim();
+  const ageVal = document.getElementById('w-age').value.trim();
+  const age = ageVal ? parseInt(ageVal) : null;
+
+  if (!name || !city || !country) {
+    showProfileError('Please fill in your name, city and country.', false);
+    return;
+  }
+
+  userProfile = { name, city, country, age, lang: selectedLang };
+  localStorage.setItem('kiny_profile', JSON.stringify(userProfile));
+
+  if (!unlocked.includes(1)) { unlocked.push(1); saveUnlocked(); }
+  applyLockState();
+  applyUserProfile();
+
+  // Hide form, show intro screen
+  document.querySelector('#c0 > div:first-of-type').style.display = 'none';
+  const intro = document.getElementById('intro-screen');
+  intro.style.display = 'block';
+  document.getElementById('intro-name').innerHTML = '<span style="font-size:1.15rem;font-weight:700">Nitwa ' + name + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">My name is ' + name + '.</span>';
+  document.getElementById('intro-country').innerHTML = '<span style="font-size:1.15rem;font-weight:700">Nturuka muri ' + country + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am from ' + country + '.</span>';
+  document.getElementById('intro-city').innerHTML = '<span style="font-size:1.15rem;font-weight:700">Ntuye i ' + city + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I live in ' + city + '.</span>';
+  const introAge = document.getElementById('intro-age');
+  if (age) {
+    introAge.innerHTML = '<span style="font-size:1.15rem;font-weight:700">Mfite imyaka ' + age + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + age + ' years old.</span>';
+    introAge.style.display = 'block';
+  } else { introAge.style.display = 'none'; }
+  window.scrollTo(0, 0);
+}
+
+function showProfileError(msg, success) {
+  const el = document.getElementById('profile-msg');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.color = success ? 'var(--accent2)' : 'var(--accent3)';
+}
+
+function applyUserProfile() {
+  if (!userProfile) return;
+  const { name, city, country, age, lang } = userProfile;
+  document.querySelectorAll('.u-name').forEach(el => el.textContent = name);
+  document.querySelectorAll('.u-city').forEach(el => el.textContent = city);
+  document.querySelectorAll('.u-country').forEach(el => el.textContent = country);
+  document.querySelectorAll('.u-age').forEach(el => el.textContent = age || '[age]');
+  const nameEl = document.getElementById('w-name');
+  if (nameEl) {
+    nameEl.value = name || '';
+    document.getElementById('w-city').value = city || '';
+    document.getElementById('w-country').value = country || '';
+    document.getElementById('w-age').value = age || '';
+    selectedLang = lang || 'en';
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    const lb = document.getElementById('lang-' + selectedLang);
+    if (lb) lb.classList.add('active');
+    updatePreview();
+  }
+}
+
+// ══════════════════════════════
 // INIT
-[0,1,2,3,4,5,6].forEach(n => { if (n !== 5 && n !== 6) renderFC(n); if (n !== 5 && n !== 6) buildQuiz(n); });
+[1,2,3,4,5,6,7].forEach(n => { if (n !== 6 && n !== 7) renderFC(n); if (n !== 6 && n !== 7) buildQuiz(n); });
 applyLockState();
+applyUserProfile();
 navigateTo('c0');
 
 // Auto-number phrase cards within each section
