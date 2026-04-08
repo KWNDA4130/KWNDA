@@ -527,7 +527,10 @@
       <div id="prev-name" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
       <div id="prev-country" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
       <div id="prev-city" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
-      <div id="prev-age" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);display:none"></div>
+      <div id="prev-age" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text);margin-bottom:6px;display:none"></div>
+      <div id="prev-say" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:.82rem;color:var(--accent2);">
+        🔊 Say each sentence out loud before moving on.
+      </div>
     </div>
 
     <div class="welcome-field">
@@ -557,7 +560,7 @@
 
     <div id="profile-msg" style="font-size:.85rem;min-height:20px;margin-bottom:10px;text-align:center"></div>
     <button id="start-btn" onclick="saveProfile()" style="width:100%;padding:16px;background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">
-      Start Learning →
+      Let's practice →
     </button>
   </div>
 
@@ -654,30 +657,15 @@
     </tbody>
   </table>
 
-  <div class="divider"></div>
-  <p class="section-title">🃏 Flashcards</p>
-  <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Tap to flip.</p>
-  <div class="fc-wrap">
-    <div class="flashcard" id="fc0" onclick="flipFC(0)">
-      <div class="flashcard-front"><div class="fc-q" id="fc0-q">…</div><div class="fc-hint">Tap to reveal ↓</div></div>
-      <div class="flashcard-back"><div class="fc-a" id="fc0-a">…</div><div class="fc-sub" id="fc0-sub">…</div></div>
-    </div>
-  </div>
-  <div class="fc-nav">
-    <button onclick="prevFC(0)">← Prev</button>
-    <span class="fc-counter" id="fc0-counter">1 / 8</span>
-    <button onclick="nextFC(0)">Next →</button>
-  </div>
-
-  <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c1-score">0</span> / <span id="c1-total">0</span></div>
-  <div id="c1-quiz"></div>
-  <button class="reset-btn" onclick="resetQuiz(0)">↺ Restart</button>
-
 
 <!-- ════════════════════════════
      CLASS 1 · INTRO
 ════════════════════════════ -->
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(1)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 </section>
 
 <section id="c2" class="page" style="display:none">
@@ -699,13 +687,13 @@
 
   <div class="phrase-card"><div class="num">3</div><div>
     <div class="en">I am from…</div>
-    <div class="rw">Nturuka <strong>muri</strong> [Country/Place] <span class="chip plural">polite</span></div>
+    <div class="rw">Nturuka <strong>muri</strong> <span class="u-country">[your country]</span> <span class="chip plural">polite</span></div>
     <div class="alt">Nva… <span class="chip informal">casual</span></div>
   </div></div>
 
   <div class="phrase-card"><div class="num">4</div><div>
     <div class="en">I live in…</div>
-    <div class="rw">Ntuye I [City] <strong>muri</strong> [Country] <span class="chip plural">polite</span></div>
+    <div class="rw">Ntuye I <span class="u-city">[your city]</span> <strong>muri</strong> <span class="u-country">[your country]</span> <span class="chip plural">polite</span></div>
     <div class="alt">Mba… <span class="chip informal">casual</span></div>
   </div></div>
 
@@ -734,30 +722,15 @@
     </tbody>
   </table>
 
-  <div class="divider"></div>
-  <p class="section-title" style="margin-top:0">🃏 Flashcards</p>
-  <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Tap to flip.</p>
-  <div class="fc-wrap">
-    <div class="flashcard" id="fc1" onclick="flipFC(1)">
-      <div class="flashcard-front"><div class="fc-q" id="fc1-q">…</div><div class="fc-hint">Tap to reveal ↓</div></div>
-      <div class="flashcard-back"><div class="fc-a" id="fc1-a">…</div><div class="fc-sub" id="fc1-sub">…</div></div>
-    </div>
-  </div>
-  <div class="fc-nav">
-    <button onclick="prevFC(1)">← Prev</button>
-    <span class="fc-counter" id="fc1-counter">1 / 7</span>
-    <button onclick="nextFC(1)">Next →</button>
-  </div>
-
-  <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c2-score">0</span> / <span id="c2-total">0</span></div>
-  <div id="c2-quiz"></div>
-  <button class="reset-btn" onclick="resetQuiz(1)">↺ Restart</button>
-
 
 <!-- ════════════════════════════
      CLASS 2 · PHRASES
 ════════════════════════════ -->
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(2)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 </section>
 
 <section id="c3" class="page" style="display:none">
@@ -792,7 +765,7 @@
         </div>
         <div class="flip-hint">tap to see answer ↩</div>
       </div>
-      <div class="pcf-back"><div><div class="answer-label">How to answer</div><div class="answer-rw">Nturuka muri [place]</div><div class="answer-en">I am from [place]</div></div></div>
+      <div class="pcf-back"><div><div class="answer-label">How to answer</div><div class="answer-rw">Nturuka muri <span class="u-country">[your country]</span></div><div class="answer-en">I am from <span class="u-country">[your country]</span></div></div></div>
     </div>
   </div>
 
@@ -889,30 +862,15 @@
     <div class="alt">Nawe <span class="chip informal">casual</span></div>
   </div></div>
 
-  <div class="divider"></div>
-  <p class="section-title" style="margin-top:0">🃏 Flashcards</p>
-  <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Tap to flip.</p>
-  <div class="fc-wrap">
-    <div class="flashcard" id="fc2" onclick="flipFC(2)">
-      <div class="flashcard-front"><div class="fc-q" id="fc2-q">…</div><div class="fc-hint">Tap to reveal ↓</div></div>
-      <div class="flashcard-back"><div class="fc-a" id="fc2-a">…</div><div class="fc-sub" id="fc2-sub">…</div></div>
-    </div>
-  </div>
-  <div class="fc-nav">
-    <button onclick="prevFC(2)">← Prev</button>
-    <span class="fc-counter" id="fc2-counter">1 / 8</span>
-    <button onclick="nextFC(2)">Next →</button>
-  </div>
-
-  <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c3-score">0</span> / <span id="c3-total">0</span></div>
-  <div id="c3-quiz"></div>
-  <button class="reset-btn" onclick="resetQuiz(2)">↺ Restart</button>
-
 
 <!-- ════════════════════════════
      CLASS 3 · GREETINGS
 ════════════════════════════ -->
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(3)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 </section>
 
 <section id="c4" class="page" style="display:none">
@@ -1018,30 +976,15 @@
     <div class="note">Have a good night</div>
   </div></div>
 
-  <div class="divider"></div>
-  <p class="section-title" style="margin-top:0">🃏 Flashcards</p>
-  <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Tap to flip.</p>
-  <div class="fc-wrap">
-    <div class="flashcard" id="fc3" onclick="flipFC(3)">
-      <div class="flashcard-front"><div class="fc-q" id="fc3-q">…</div><div class="fc-hint">Tap to reveal ↓</div></div>
-      <div class="flashcard-back"><div class="fc-a" id="fc3-a">…</div><div class="fc-sub" id="fc3-sub">…</div></div>
-    </div>
-  </div>
-  <div class="fc-nav">
-    <button onclick="prevFC(3)">← Prev</button>
-    <span class="fc-counter" id="fc3-counter">1 / 11</span>
-    <button onclick="nextFC(3)">Next →</button>
-  </div>
-
-  <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c4-score">0</span> / <span id="c4-total">0</span></div>
-  <div id="c4-quiz"></div>
-  <button class="reset-btn" onclick="resetQuiz(3)">↺ Restart</button>
-
 
 <!-- ════════════════════════════
      CLASS 4 · NUMBERS
 ════════════════════════════ -->
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(4)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 </section>
 
 <section id="c5" class="page" style="display:none">
@@ -1102,30 +1045,15 @@
     </tbody>
   </table>
 
-  <div class="divider"></div>
-  <p class="section-title" style="margin-top:0">🃏 Flashcards</p>
-  <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Tap to flip.</p>
-  <div class="fc-wrap">
-    <div class="flashcard" id="fc4" onclick="flipFC(4)">
-      <div class="flashcard-front"><div class="fc-q" id="fc4-q">…</div><div class="fc-hint">Tap to reveal ↓</div></div>
-      <div class="flashcard-back"><div class="fc-a" id="fc4-a">…</div><div class="fc-sub" id="fc4-sub">…</div></div>
-    </div>
-  </div>
-  <div class="fc-nav">
-    <button onclick="prevFC(4)">← Prev</button>
-    <span class="fc-counter" id="fc4-counter">1 / 10</span>
-    <button onclick="nextFC(4)">Next →</button>
-  </div>
-
-  <p class="section-title">🧠 Quiz</p>
-  <div class="quiz-score">Score: <span id="c5-score">0</span> / <span id="c5-total">0</span></div>
-  <div id="c5-quiz"></div>
-  <button class="reset-btn" onclick="resetQuiz(4)">↺ Restart</button>
-
 
 <!-- ════════════════════════════
      CLASS 5 · CONVERSATION
 ════════════════════════════ -->
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(5)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 </section>
 
 <section id="c6" class="page" style="display:none">
@@ -1457,11 +1385,11 @@
   </div>
 
   <!-- QUIZ -->
-  <p class="section-title">🧠 Conversation Quiz</p>
-  <p style="color:#6fa3d4;font-size:.82rem;margin-bottom:14px;">Pick the right response to keep the conversation going.</p>
-  <div class="quiz-score">Score: <span id="c6-score">0</span> / <span id="c6-total">0</span></div>
-  <div id="c6-quiz"></div>
-  <button class="reset-btn" onclick="resetConvoQuiz()">↺ Restart</button>
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(6)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 
 
 <!-- ════════════════════════════
@@ -1766,11 +1694,11 @@
 
   <!-- QUIZ -->
   <div class="divider"></div>
-  <p class="section-title">🧠 Conversation Quiz</p>
-  <p style="color:#6fa3d4;font-size:.82rem;margin-bottom:14px;">Pick the right response to keep the conversation going.</p>
-  <div class="quiz-score">Score: <span id="c7-score">0</span> / <span id="c7-total">0</span></div>
-  <div id="c7-quiz"></div>
-  <button class="reset-btn" onclick="resetConvoQuiz6()">↺ Restart</button>
+  <div style="text-align:center;margin:32px 0 8px">
+    <button onclick="startPractice(7)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+      Ready to Practice? 🎯
+    </button>
+  </div>
 
 
 <!-- ════════════════════════════
@@ -1778,13 +1706,19 @@
 ════════════════════════════ -->
 </section>
 
+<!-- ════════════════════════════
+     PRACTICE PAGE
+════════════════════════════ -->
+<section id="practice" class="page" style="display:none">
+  <div id="practice-container" style="max-width:560px;margin:0 auto"></div>
+</section>
+
 <section id="cR" class="page" style="display:none">
   <h2 class="page-title">⭐ Review All</h2>
   <div class="tip">💡 Pulls everything from your unlocked classes, shuffled randomly every time. New order each session.</div>
 
   <!-- REVIEW FLASHCARDS -->
-  <p class="section-title" style="margin-top:0">🃏 Flashcards — All Unlocked</p>
-  <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Shuffled fresh every time you open this tab.</p>
+<p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;">Shuffled fresh every time you open this tab.</p>
   <div class="fc-wrap">
     <div class="flashcard" id="fcR" onclick="flipFC('R')">
       <div class="flashcard-front"><div class="fc-q" id="fcR-q">…</div><div class="fc-hint">Tap to reveal ↓</div></div>
@@ -1998,7 +1932,7 @@ const quizData = {
 // ══════════════════════════════
 // NAVIGATION — Hamburger Sidebar
 // ══════════════════════════════
-const pageIds = ['c0','c1','c2','c3','c4','c5','c6','c7','cR'];
+const pageIds = ['c0','c1','c2','c3','c4','c5','c6','c7','practice','cR'];
 const pageLabels = ['Class 0 · Welcome','Class 1 · Pronunciation','Class 2 · Intro','Class 3 · Phrases','Class 4 · Greetings','Class 5 · Numbers','Class 6 · Conversation','Class 7 · Greetings Conv.','⭐ Review All'];
 let currentPage = 'c1';
 
@@ -2026,6 +1960,7 @@ function navigateTo(id) {
   // Scroll to top
   window.scrollTo(0, 0);
   closeSidebar();
+  applyUserProfile();
   // If navigating back to c0, reset to form view
   if (id === 'c0') {
     const form = document.querySelector('#c0 > div:first-of-type');
@@ -2148,13 +2083,16 @@ const qCurrent = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
 
 function buildQuiz(n) {
   qScore[n]=0; qTotal[n]=0; qCurrent[n]=0;
-  document.getElementById(`c${n}-score`).textContent = 0;
-  document.getElementById(`c${n}-total`).textContent = quizData[n].length;
+  const scoreEl = document.getElementById(`c${n}-score`);
+  const totalEl = document.getElementById(`c${n}-total`);
+  if (scoreEl) scoreEl.textContent = 0;
+  if (totalEl) totalEl.textContent = quizData[n].length;
   renderQuestion(n);
 }
 
 function renderQuestion(n) {
   const el = document.getElementById(`c${n}-quiz`);
+  if (!el) return;
   const total = quizData[n].length;
   const qi = qCurrent[n];
 
@@ -2205,7 +2143,8 @@ function checkAns(btn, n, qi, chosen, correct) {
     fb.style.color = 'var(--accent3)';
   }
   qTotal[n]++;
-  document.getElementById(`c${n}-score`).textContent = qScore[n];
+  const scoreEl = document.getElementById(`c${n}-score`);
+  if (scoreEl) scoreEl.textContent = qScore[n];
 
   // Show next button
   const nextBtn = document.createElement('button');
@@ -2219,8 +2158,10 @@ function checkAns(btn, n, qi, chosen, correct) {
 
 function resetQuiz(n) {
   qScore[n]=0; qTotal[n]=0; qCurrent[n]=0;
-  document.getElementById(`c${n}-score`).textContent=0;
-  document.getElementById(`c${n}-total`).textContent=quizData[n].length;
+  const scoreEl = document.getElementById(`c${n}-score`);
+  const totalEl = document.getElementById(`c${n}-total`);
+  if (scoreEl) scoreEl.textContent = 0;
+  if (totalEl) totalEl.textContent = quizData[n].length;
   renderQuestion(n);
 }
 
@@ -2314,13 +2255,14 @@ const convoQuizData = [
 
 function buildConvoQuiz() {
   convoIndex = 0; convoScore = 0;
-  document.getElementById('c5-score').textContent = 0;
-  document.getElementById('c5-total').textContent = convoQuizData.length;
+  const _s5=document.getElementById('c5-score'); if(_s5) _s5.textContent=0;
+  const _t5=document.getElementById('c5-total'); if(_t5) _t5.textContent=convoQuizData.length;
   renderConvoQuestion();
 }
 
 function renderConvoQuestion() {
-  const el = document.getElementById('c5-quiz');
+  const el = document.getElementById('c5-quiz') || document.getElementById('c6-quiz');
+  if (!el) return;
   const total = convoQuizData.length;
   const qi = convoIndex;
   const pct = Math.round((qi / total) * 100);
@@ -2373,7 +2315,7 @@ function checkConvoAns(btn, qi) {
   if (isCorrect) {
     btn.classList.add('correct');
     convoScore++;
-    document.getElementById('c5-score').textContent = convoScore;
+    const _sc5=document.getElementById('c5-score'); if(_sc5) _sc5.textContent=convoScore;
     // Show the followup bubble
     const followDiv = document.createElement('div');
     followDiv.className = 'bubble-row';
@@ -2409,7 +2351,6 @@ function checkConvoAns(btn, qi) {
 function resetConvoQuiz() { buildConvoQuiz(); }
 let convoIndex = 0;
 let convoScore = 0;
-buildConvoQuiz();
 
 // ══════════════════════════════
 // CONVERSATION QUIZ (Class 6)
@@ -2539,13 +2480,14 @@ let convoScore6 = 0;
 
 function buildConvoQuiz6() {
   convoIndex6 = 0; convoScore6 = 0;
-  document.getElementById('c6-score').textContent = 0;
-  document.getElementById('c6-total').textContent = convoQuizData6.length;
+  const _s6=document.getElementById('c6-score'); if(_s6) _s6.textContent=0;
+  const _t6=document.getElementById('c6-total'); if(_t6) _t6.textContent=convoQuizData6.length;
   renderConvoQuestion6();
 }
 
 function renderConvoQuestion6() {
-  const el = document.getElementById('c6-quiz');
+  const el = document.getElementById('c6-quiz') || document.getElementById('c7-quiz');
+  if (!el) return;
   const total = convoQuizData6.length;
   const qi = convoIndex6;
   const pct = Math.round((qi / total) * 100);
@@ -2598,7 +2540,7 @@ function checkConvoAns6(btn, qi) {
   if (isCorrect) {
     btn.classList.add('correct');
     convoScore6++;
-    document.getElementById('c6-score').textContent = convoScore6;
+    const _sc6=document.getElementById('c6-score'); if(_sc6) _sc6.textContent=convoScore6;
     const followDiv = document.createElement('div');
     followDiv.className = 'bubble-row';
     followDiv.style.marginTop = '12px';
@@ -2629,7 +2571,6 @@ function checkConvoAns6(btn, qi) {
 }
 
 function resetConvoQuiz6() { buildConvoQuiz6(); }
-buildConvoQuiz6();
 
 // ══════════════════════════════
 // CONFETTI
@@ -2862,6 +2803,10 @@ function updatePreview() {
     pa.innerHTML = '<span style="font-size:1.05rem;font-weight:700">Mfite imyaka ' + ageRw + '.</span> <span style="color:#6fa3d4;font-weight:400;font-size:.78rem">I am ' + ageVal + ' years old.</span>';
     pa.style.display = 'block';
   } else { pa.style.display = 'none'; }
+
+  const allFilled = name && country && city;
+  const sayEl = document.getElementById('prev-say');
+  if (sayEl) sayEl.style.display = allFilled ? 'block' : 'none';
 }
 
 function saveProfile() {
@@ -2912,7 +2857,7 @@ function applyUserProfile() {
   document.querySelectorAll('.u-name').forEach(el => el.textContent = name);
   document.querySelectorAll('.u-city').forEach(el => el.textContent = city);
   document.querySelectorAll('.u-country').forEach(el => el.textContent = country);
-  document.querySelectorAll('.u-age').forEach(el => el.textContent = age || '[age]');
+  document.querySelectorAll('.u-age').forEach(el => el.textContent = age ? toKinyarwandaNumber(age) : '[age]');
   const nameEl = document.getElementById('w-name');
   if (nameEl) {
     nameEl.value = name || '';
@@ -2928,8 +2873,246 @@ function applyUserProfile() {
 }
 
 // ══════════════════════════════
+// PRACTICE ENGINE
+// ══════════════════════════════
+let practiceClassN = 1;
+let practiceCards = [];
+let practiceStatus = {};
+let practiceRetryCount = {};
+let practiceQueue = [];
+let practiceCardIdx = 0;
+let practiceRound = 1;
+let practiceReversed = false;
+let practiceFromClass = 'c1';
+let practiceTotalAnswers = 0;
+let practiceEasyAnswers = 0;
+let practiceR1Misses = [];  // indices marked hard/forgot in Round 1
+let practiceR2Misses = [];  // indices marked hard/forgot in Round 2
+
+function buildPracticeCards(n) {
+  const cards = [];
+  // Build from quizData — each question becomes a card
+  if (quizData[n]) {
+    quizData[n].forEach(item => {
+      // The correct answer is the card's "rw" side
+      const correctOpt = item.opts[item.ans];
+      cards.push({ en: item.q, rw: correctOpt, sub: '' });
+    });
+  }
+  return cards;
+}
+
+function buildConvoPracticeCards(n) {
+  // Build from convo quiz data for classes 6 & 7
+  const data = n === 6 ? convoQuizData : convoQuizData6;
+  return data.map(item => ({
+    en: item.prompt.en || item.prompt.rw,
+    rw: item.opts.find(o => o.correct).rw,
+    sub: ''
+  }));
+}
+
+function startPractice(n) {
+  practiceClassN = n;
+  practiceFromClass = 'c' + n;
+  practiceCards = (n === 6 || n === 7) ? buildConvoPracticeCards(n) : buildPracticeCards(n);
+  if (!practiceCards.length) return;
+  practiceStatus = {};
+  practiceRetryCount = {};
+  practiceTotalAnswers = 0;
+  practiceEasyAnswers = 0;
+  practiceR1Misses = [];
+  practiceR2Misses = [];
+  practiceRound = 1;
+  practiceReversed = false;
+  practiceQueue = practiceCards.map((_, i) => i);
+  practiceCardIdx = 0;
+  // Navigate to practice page (not in pageIds menu so do manually)
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('practice').style.display = 'block';
+  document.getElementById('topbar-class').textContent = 'Practice · Class ' + n;
+  closeSidebar();
+  renderPracticeCard();
+}
+
+function renderPracticeCard() {
+  const el = document.getElementById('practice-container');
+  const total = practiceQueue.length;
+  const idx = practiceCardIdx;
+
+  if (idx >= total) {
+    // End of round
+    endPracticeRound();
+    return;
+  }
+
+  const cardIdx = practiceQueue[idx];
+  const card = practiceCards[cardIdx];
+  const pct = Math.round((idx / total) * 100);
+  const prompt = practiceReversed ? card.rw : card.en;
+  const answer = practiceReversed ? card.en : card.rw;
+  const answerSub = practiceReversed ? '' : card.sub;
+  const roundLabel = practiceRound === 3 ? 'Final Round · Review' : practiceReversed ? 'Round 2 · Kinyarwanda → English' : 'Round 1 · English → Kinyarwanda';
+
+  el.innerHTML = `
+    <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px">${roundLabel}</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:4px;height:3px;margin-bottom:24px;overflow:hidden">
+      <div style="background:var(--accent);height:100%;width:${pct}%;transition:width .3s"></div>
+    </div>
+    <div style="font-size:.72rem;color:var(--muted);margin-bottom:20px;text-align:right">${idx+1} / ${total}</div>
+
+    <div style="background:var(--card2);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;margin-bottom:20px">
+      <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">${practiceReversed ? 'Say this in English' : 'Say this in Kinyarwanda'}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--text);line-height:1.4">${prompt}</div>
+    </div>
+
+    <div id="practice-reveal-wrap" style="text-align:center;margin-bottom:24px">
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:12px">🔊 Say your answer out loud before revealing</div>
+      <button onclick="revealPracticeAnswer()" style="background:none;border:1px solid var(--border);color:var(--muted);border-radius:10px;padding:12px 32px;font-family:'DM Sans',sans-serif;font-size:.9rem;cursor:pointer">
+        Tap to reveal ↓
+      </button>
+    </div>
+
+    <div id="practice-answer" style="display:none">
+      <div style="background:var(--card);border:1px solid var(--accent2);border-radius:16px;padding:24px;text-align:center;margin-bottom:20px">
+        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--accent2);margin-bottom:${answerSub ? '8px' : '0'}">${answer}</div>
+        ${answerSub ? `<div style="font-size:.78rem;color:#6fa3d4">${answerSub}</div>` : ''}
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <button onclick="ratePracticeCard('forgot')" style="padding:14px 8px;border:1px solid var(--accent3);background:none;color:var(--accent3);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer">😬 Forgot</button>
+        <button onclick="ratePracticeCard('hard')" style="padding:14px 8px;border:1px solid var(--accent);background:none;color:var(--accent);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer">🤔 Hard</button>
+        <button onclick="ratePracticeCard('easy')" style="padding:14px 8px;border:1px solid var(--accent2);background:none;color:var(--accent2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer">✅ Easy</button>
+      </div>
+    </div>`;
+}
+
+function revealPracticeAnswer() {
+  document.getElementById('practice-reveal-wrap').style.display = 'none';
+  document.getElementById('practice-answer').style.display = 'block';
+}
+
+function ratePracticeCard(rating) {
+  const cardIdx = practiceQueue[practiceCardIdx];
+  practiceStatus[cardIdx] = rating;
+  // Only count R1 and R2 toward score
+  if (practiceRound <= 2) {
+    practiceTotalAnswers++;
+    if (rating === 'easy') practiceEasyAnswers++;
+  }
+  if (rating !== 'easy') {
+    if (practiceRound === 1) practiceR1Misses.push(cardIdx);
+    else if (practiceRound === 2) practiceR2Misses.push(cardIdx);
+    else if (practiceRound === 3) {
+      const retries = practiceRetryCount[cardIdx] || 0;
+      if (retries < 2) {
+        practiceRetryCount[cardIdx] = retries + 1;
+        practiceQueue.splice(practiceCardIdx + 1, 0, cardIdx);
+      }
+    }
+  }
+  practiceCardIdx++;
+  renderPracticeCard();
+}
+
+function endPracticeRound() {
+  const el = document.getElementById('practice-container');
+
+  if (practiceRound === 1) {
+    // Round 1 done → Round 2 (reversed)
+    practiceRound = 2;
+    practiceReversed = true;
+    practiceQueue = practiceCards.map((_, i) => i);
+    practiceCardIdx = 0;
+    el.innerHTML = `
+      <div style="text-align:center;padding:48px 24px">
+        <div style="font-size:2.5rem;margin-bottom:16px">🔄</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--text);margin-bottom:10px">Round 2</div>
+        <div style="font-size:.9rem;color:var(--muted);margin-bottom:28px">Now Kinyarwanda → English</div>
+        <button onclick="renderPracticeCard()" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">Let's go →</button>
+      </div>`;
+    return;
+  }
+
+  if (practiceRound === 2) {
+    // Round 2 done → Final Round with ALL misses from R1 + R2
+    practiceRound = 3;
+    // Combine: R1 misses + R2 misses, preserve duplicates (same card can appear twice)
+    const r3Queue = [...practiceR1Misses, ...practiceR2Misses];
+    if (r3Queue.length > 0) {
+      practiceReversed = false;
+      practiceQueue = r3Queue;
+      practiceCardIdx = 0;
+      practiceRetryCount = {}; // reset retry counter for R3
+      el.innerHTML = `
+        <div style="text-align:center;padding:48px 24px">
+          <div style="font-size:2.5rem;margin-bottom:16px">💪</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--text);margin-bottom:10px">Final Round</div>
+          <div style="font-size:.9rem;color:var(--muted);margin-bottom:28px">Let's review the ones that need more work</div>
+          <button onclick="renderPracticeCard()" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">Let's go →</button>
+        </div>`;
+      return;
+    }
+    showPracticeResults();
+    return;
+  }
+
+  // Round 3 done → show results
+  showPracticeResults();
+}
+
+function showPracticeResults() {
+  const el = document.getElementById('practice-container');
+  const pct = practiceTotalAnswers > 0 ? Math.round((practiceEasyAnswers / practiceTotalAnswers) * 100) : 0;
+  const allEasy = pct === 100;
+  const nextClassIdx = pageIds.indexOf(practiceFromClass) + 1;
+  const nextClassId = pageIds[nextClassIdx];
+  const hasNext = nextClassId && nextClassId !== 'cR' && nextClassId !== 'practice' && unlocked.includes(nextClassIdx);
+
+  el.innerHTML = `
+    <div style="text-align:center;padding:32px 16px">
+      <div style="font-size:3rem;margin-bottom:12px">${allEasy ? '🏆' : '🎯'}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:${allEasy ? 'var(--accent2)' : 'var(--accent)'};margin-bottom:16px">
+        ${allEasy ? 'Perfect session!' : 'Practice complete!'}
+      </div>
+      <div style="background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:18px 24px;margin-bottom:28px;display:inline-block;min-width:200px">
+        <div style="font-size:2.2rem;font-weight:700;color:${pct >= 80 ? 'var(--accent2)' : pct >= 50 ? 'var(--accent)' : 'var(--accent3)'};font-family:'Playfair Display',serif">${pct}%</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px">success across all rounds</div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:2px">${practiceEasyAnswers} / ${practiceTotalAnswers} correct answers</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto">
+        <button onclick="startPractice(${practiceClassN})" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer">
+          🔁 Practice again
+        </button>
+        <button onclick="launchQuickReview(${practiceClassN})" style="background:none;border:1px solid var(--accent);color:var(--accent);border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer">
+          ⚡ Quick review
+        </button>
+        ${hasNext ? `<button onclick="navigateTo('${nextClassId}')" style="background:none;border:1px solid var(--border);color:var(--muted);border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer">
+          Next lesson →
+        </button>` : ''}
+      </div>
+    </div>`;
+  if (allEasy) launchConfetti();
+}
+
+function launchQuickReview(n) {
+  // Show quiz inline on the practice end screen
+  const el = document.getElementById('practice-container');
+  const cid = 'c' + n;
+  const isConvo = n === 6 || n === 7;
+  el.innerHTML = `
+    <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:16px">⚡ Quick Review · Class ${n}</div>
+    <div class="quiz-score">Score: <span id="${cid}-score">0</span> / <span id="${cid}-total">0</span></div>
+    <div id="${cid}-quiz"></div>
+    <button class="reset-btn" onclick="${isConvo ? (n===6?'resetConvoQuiz()':'resetConvoQuiz6()') : 'resetQuiz('+n+')'}">↺ Restart</button>
+    <div style="text-align:center;margin-top:16px">
+      <button onclick="startPractice(${practiceClassN})" style="background:none;border:1px solid var(--border);color:var(--muted);border-radius:10px;padding:10px 24px;font-family:'DM Sans',sans-serif;font-size:.85rem;cursor:pointer">← Back to practice</button>
+    </div>`;
+  if (isConvo) { n === 6 ? buildConvoQuiz() : buildConvoQuiz6(); }
+  else { buildQuiz(n); }
+}
+
+// ══════════════════════════════
 // INIT
-[1,2,3,4,5,6,7].forEach(n => { if (n !== 6 && n !== 7) renderFC(n); if (n !== 6 && n !== 7) buildQuiz(n); });
 applyLockState();
 applyUserProfile();
 navigateTo('c0');
