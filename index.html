@@ -228,7 +228,7 @@
   .phrase-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 14px;
     padding: 15px 18px;
     margin-bottom: 10px;
     display: flex;
@@ -255,7 +255,7 @@
   .phrase-card-flip {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 14px;
     margin-bottom: 10px;
     cursor: pointer;
     perspective: 800px;
@@ -284,7 +284,7 @@
     position: absolute; inset: 0;
     transform: rotateY(180deg);
     background: #1a2a1e;
-    border-radius: 16px;
+    border-radius: 14px;
     border: 1px solid var(--accent2);
     align-items: center;
   }
@@ -329,7 +329,7 @@
   .flashcard { width: 100%; min-height: 165px; position: relative; transform-style: preserve-3d; transition: transform .5s; cursor: pointer; }
   .flashcard.flipped { transform: rotateY(180deg); }
   .flashcard-front, .flashcard-back {
-    position: absolute; inset: 0; border-radius: 16px;
+    position: absolute; inset: 0; border-radius: 14px;
     backface-visibility: hidden;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: 24px; text-align: center;
@@ -370,7 +370,7 @@
     margin-bottom: 20px;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 14px;
     padding: 16px 18px;
     transition: border-color .2s;
   }
@@ -429,73 +429,6 @@
     transition: width .4s ease;
   }
 
-  /* CHEAT SHEET (Class 3) */
-  .cheat-group { margin-bottom: 24px; }
-  .cheat-label {
-    font-size: .68rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
-    padding-left: 4px;
-  }
-  .cheat-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 16px;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-  }
-  .cheat-row:first-of-type { border-radius: 12px 12px 0 0; }
-  .cheat-row:last-of-type { border-bottom: none; border-radius: 0 0 12px 12px; }
-  .cheat-row:only-of-type { border-radius: 12px; border-bottom: none; }
-  .cheat-en {
-    font-size: .85rem;
-    color: #6fa3d4;
-    flex: 1;
-  }
-  .cheat-rw {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text);
-    text-align: right;
-  }
-  .cheat-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 120px;
-    gap: 8px;
-    transition: border-color .2s, background .2s;
-  }
-  .cheat-card:hover { border-color: var(--accent); background: var(--card2); }
-  .cheat-card-rw {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.3;
-  }
-  .cheat-card-en {
-    font-size: 1.05rem;
-    color: #6fa3d4;
-    font-weight: 500;
-  }
-  .cheat-note {
-    font-size: .7rem;
-    color: var(--muted);
-    display: block;
-    margin-top: 2px;
-  }
-
   /* CONFETTI CANVAS */
   #confetti-canvas {
     position: fixed;
@@ -543,32 +476,27 @@
     </button>
     <button class="menu-item locked" id="menu-c3" onmousedown="startSecretUnlock(3)" onmouseup="cancelSecretUnlock(3)" onmouseleave="cancelSecretUnlock(3)" ontouchstart="startSecretUnlock(3)" ontouchend="cancelSecretUnlock(3)">
       <span class="menu-badge">C3</span>
-      <span class="menu-label">Class 3 · Classroom</span>
+      <span class="menu-label">Class 3 · Phrases</span>
       <span class="menu-lock">🔒</span>
     </button>
     <button class="menu-item locked" id="menu-c4" onmousedown="startSecretUnlock(4)" onmouseup="cancelSecretUnlock(4)" onmouseleave="cancelSecretUnlock(4)" ontouchstart="startSecretUnlock(4)" ontouchend="cancelSecretUnlock(4)">
       <span class="menu-badge">C4</span>
-      <span class="menu-label">Class 4 · Phrases</span>
+      <span class="menu-label">Class 4 · Greetings</span>
       <span class="menu-lock">🔒</span>
     </button>
     <button class="menu-item locked" id="menu-c5" onmousedown="startSecretUnlock(5)" onmouseup="cancelSecretUnlock(5)" onmouseleave="cancelSecretUnlock(5)" ontouchstart="startSecretUnlock(5)" ontouchend="cancelSecretUnlock(5)">
       <span class="menu-badge">C5</span>
-      <span class="menu-label">Class 5 · Greetings</span>
+      <span class="menu-label">Class 5 · Numbers</span>
       <span class="menu-lock">🔒</span>
     </button>
     <button class="menu-item locked" id="menu-c6" onmousedown="startSecretUnlock(6)" onmouseup="cancelSecretUnlock(6)" onmouseleave="cancelSecretUnlock(6)" ontouchstart="startSecretUnlock(6)" ontouchend="cancelSecretUnlock(6)">
       <span class="menu-badge">C6</span>
-      <span class="menu-label">Class 6 · Numbers</span>
+      <span class="menu-label">Class 6 · Conversation</span>
       <span class="menu-lock">🔒</span>
     </button>
     <button class="menu-item locked" id="menu-c7" onmousedown="startSecretUnlock(7)" onmouseup="cancelSecretUnlock(7)" onmouseleave="cancelSecretUnlock(7)" ontouchstart="startSecretUnlock(7)" ontouchend="cancelSecretUnlock(7)">
       <span class="menu-badge">C7</span>
-      <span class="menu-label">Class 7 · Conversation</span>
-      <span class="menu-lock">🔒</span>
-    </button>
-    <button class="menu-item locked" id="menu-c8" onmousedown="startSecretUnlock(8)" onmouseup="cancelSecretUnlock(8)" onmouseleave="cancelSecretUnlock(8)" ontouchstart="startSecretUnlock(8)" ontouchend="cancelSecretUnlock(8)">
-      <span class="menu-badge">C8</span>
-      <span class="menu-label">Class 8 · Greetings Conv.</span>
+      <span class="menu-label">Class 7 · Greetings Conv.</span>
       <span class="menu-lock">🔒</span>
     </button>
     <button class="menu-item unlocked" id="menu-cR" onclick="navigateTo('cR')">
@@ -655,7 +583,7 @@
 <section id="c1" class="page" style="display:none">
   <h2 class="page-title">Class 1 · Pronunciation</h2>
 
-  <div class="tip">💡 Kinyarwanda is very consistent — once you learn the rules, words are pronounced clearly and predictably.</div>
+  <div class="tip">💡 Kinyarwanda is very consistent — once you learn the rules, every word sounds exactly as written.</div>
 
   <p class="section-title" style="margin-top:0">The 5 Vowels — always the same</p>
   <table class="rw-table">
@@ -693,7 +621,7 @@
 
   <div class="phrase-card"><div class="num">2</div><div>
     <div class="en">Vowels never blend together</div>
-    <div class="rw">Each vowel has its own beat</div>
+    <div class="rw">Each vowel = its own beat</div>
     <div class="note" style="color:#6fa3d4">Nishimiye = Ni · shi · mi · ye (4 syllables)</div>
   </div></div>
 
@@ -701,6 +629,12 @@
     <div class="en">Consonant clusters stay together</div>
     <div class="rw">RW, NY, CY etc. are one sound</div>
     <div class="note" style="color:#6fa3d4">Kinyarwanda = Ki · nya · rwa · nda (4 syllables)</div>
+  </div></div>
+
+  <div class="phrase-card"><div class="num">4</div><div>
+    <div class="en">Tone matters</div>
+    <div class="rw">High / low pitch can change meaning</div>
+    <div class="note" style="color:#6fa3d4">Your teacher's voice is the best guide — listen and copy</div>
   </div></div>
 
   <div class="divider"></div>
@@ -722,13 +656,7 @@
 <!-- ════════════════════════════
      CLASS 1 · INTRO
 ════════════════════════════ -->
-  <div style="margin:32px 0 24px;border:1px solid var(--border);border-radius:12px;padding:18px 20px;background:var(--card)">
-    <div style="font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">💡 Good to know</div>
-    <div style="font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:6px">Tone can matter in Kinyarwanda</div>
-    <div style="font-size:.83rem;color:var(--muted);line-height:1.6">Don't worry about it for now — focus on clear pronunciation. It will improve naturally as you listen and speak more.</div>
-  </div>
-
-  <div style="text-align:center;margin:0 0 8px">
+  <div style="text-align:center;margin:32px 0 8px">
     <button onclick="navigateTo('c2')" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
       Let's move on → Class 2
     </button>
@@ -739,16 +667,6 @@
   <h2 class="page-title">Class 2 · Intro</h2>
 
   <div class="tip">💡 Polite/plural shown <strong style="color:var(--accent2)">first</strong>. Informal dimmed below.</div>
-
-  <div class="divider"></div>
-  <table class="rw-table">
-    <thead><tr><th>Word</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td class="rw-word">Yego</td><td>Yes</td></tr>
-      <tr><td class="rw-word">Oya</td><td>No</td></tr>
-    </tbody>
-  </table>
-  <div class="divider"></div>
 
   <div class="phrase-card"><div class="num">1</div><div>
     <div class="en">Hello!</div>
@@ -779,6 +697,25 @@
     <div class="rw">Mfite imyaka <span class="u-age">[age]</span></div>
   </div></div>
 
+  <div class="phrase-card"><div class="num">6</div><div>
+    <div class="en">I am a [profession]</div>
+    <div class="rw">Ndi Umunyeshuri w'ikinyarwanda</div>
+    <div class="note">Example: I am a Kinyarwanda student</div>
+  </div></div>
+
+  <div class="phrase-card"><div class="num">7</div><div>
+    <div class="en">Yes / No</div>
+    <div class="rw">Yego &nbsp;/&nbsp; Oya</div>
+  </div></div>
+
+  <div class="divider"></div>
+  <table class="rw-table">
+    <thead><tr><th>Word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="rw-word">MU / MURI</td><td>In (Muri before vowels)</td></tr>
+      <tr><td class="rw-word">Ndi</td><td>I am</td></tr>
+    </tbody>
+  </table>
 
 
 <!-- ════════════════════════════
@@ -792,62 +729,6 @@
 </section>
 
 <section id="c3" class="page" style="display:none">
-  <h2 class="page-title">Class 3 · Classroom Phrases</h2>
-
-  <div class="tip">💡 These are the phrases you'll use every lesson — to ask, confirm, and keep the conversation going.</div>
-
-  <div class="cheat-group">
-    <div class="cheat-label">Agree / Disagree</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="cheat-card"><div class="cheat-card-rw">Nibyo?</div><div class="cheat-card-en">Right? / Correct?</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Nibyo.</div><div class="cheat-card-en">Right. / Correct.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Sibyo?</div><div class="cheat-card-en">False? / Isn't it?</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Sibyo.</div><div class="cheat-card-en">False. / Not right.</div></div>
-    </div>
-  </div>
-
-  <div class="cheat-group">
-    <div class="cheat-label">Understanding</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="cheat-card"><div class="cheat-card-rw">Ndabyumva.</div><div class="cheat-card-en">I understand it.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Ntabwo mbyumva.</div><div class="cheat-card-en">I don't understand.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Urabyumva se?</div><div class="cheat-card-en">Do you understand?</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Ndibuka.</div><div class="cheat-card-en">I remember.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Ntabwo nibuka.</div><div class="cheat-card-en">I don't remember.</div></div>
-    </div>
-  </div>
-
-  <div class="cheat-group">
-    <div class="cheat-label">Knowing</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="cheat-card"><div class="cheat-card-rw">Uzi.</div><div class="cheat-card-en">You know.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Sinzi.</div><div class="cheat-card-en">I don't know.<span class="cheat-note">also: Ntabwo nzi</span></div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Sinzi neza.</div><div class="cheat-card-en">I'm not sure.</div></div>
-    </div>
-  </div>
-
-  <div class="cheat-group">
-    <div class="cheat-label">Asking for Help</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="cheat-card"><div class="cheat-card-rw">Ni iki…?</div><div class="cheat-card-en">What is…?</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">{…} bivuze iki?</div><div class="cheat-card-en">What does {…} mean?</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Bavuga gute {…}?</div><div class="cheat-card-en">How do they say {…}?</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Wasubiyemo.</div><div class="cheat-card-en">Could you repeat?<span class="cheat-note">casual: Subiramo</span></div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Wasubiramo.</div><div class="cheat-card-en">You may repeat.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">B'uretse.</div><div class="cheat-card-en">Hold on.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">B'uretse, ndi gutekereza.</div><div class="cheat-card-en">Hold on, I'm thinking.</div></div>
-      <div class="cheat-card"><div class="cheat-card-rw">Ihangane.</div><div class="cheat-card-en">Be patient.</div></div>
-    </div>
-  </div>
-
-  <div style="text-align:center;margin:32px 0 8px">
-    <button onclick="startPractice(3)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
-      Ready to Practice? 🎯
-    </button>
-  </div>
-</section>
-
-<section id="c4" class="page" style="display:none">
   <h2 class="page-title">Class 3 · Phrases</h2>
 
   <div class="tip">💡 Polite/plural <strong style="color:var(--accent2)">first</strong> — use with elders, strangers, and in formal settings.</div>
@@ -981,13 +862,13 @@
      CLASS 3 · GREETINGS
 ════════════════════════════ -->
   <div style="text-align:center;margin:32px 0 8px">
-    <button onclick="startPractice(4)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+    <button onclick="startPractice(3)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
       Ready to Practice? 🎯
     </button>
   </div>
 </section>
 
-<section id="c5" class="page" style="display:none">
+<section id="c4" class="page" style="display:none">
   <h2 class="page-title">Class 4 · Greetings</h2>
 
   <div class="tip">💡 Kinyarwanda has specific greetings for each time of day — and separate phrases for <em>greeting</em> vs. <em>leaving</em>.</div>
@@ -1095,13 +976,13 @@
      CLASS 4 · NUMBERS
 ════════════════════════════ -->
   <div style="text-align:center;margin:32px 0 8px">
-    <button onclick="startPractice(5)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+    <button onclick="startPractice(4)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
       Ready to Practice? 🎯
     </button>
   </div>
 </section>
 
-<section id="c6" class="page" style="display:none">
+<section id="c5" class="page" style="display:none">
   <h2 class="page-title">Class 5 · Numbers</h2>
 
   <div class="tip">💡 To say your age: <strong>Mfite imyaka [number]</strong> — e.g. "Mfite imyaka makumyabiri" = I am 20 years old.</div>
@@ -1164,13 +1045,13 @@
      CLASS 5 · CONVERSATION
 ════════════════════════════ -->
   <div style="text-align:center;margin:32px 0 8px">
-    <button onclick="startPractice(6)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+    <button onclick="startPractice(5)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
       Ready to Practice? 🎯
     </button>
   </div>
 </section>
 
-<section id="c7" class="page" style="display:none">
+<section id="c6" class="page" style="display:none">
   <h2 class="page-title">Class 6 · Conversation</h2>
 
   <div class="tip">💡 Each exchange has 3 lines: question → teacher answers + asks you back → <strong style="color:var(--accent)">your turn</strong> to answer with your own details.</div>
@@ -1500,7 +1381,7 @@
 
   <!-- QUIZ -->
   <div style="text-align:center;margin:32px 0 8px">
-    <button onclick="startPractice(7)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+    <button onclick="startPractice(6)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
       Ready to Practice? 🎯
     </button>
   </div>
@@ -1511,7 +1392,7 @@
 ════════════════════════════ -->
 </section>
 
-<section id="c8" class="page" style="display:none">
+<section id="c7" class="page" style="display:none">
   <h2 class="page-title">Class 6 · Greetings Conv.</h2>
 
   <div class="tip">💡 <strong>Waramutse / Wiriwe</strong> = singular/informal · <strong>Mwaramutse / Mwiriwe</strong> = polite/plural. <strong>Nawe</strong> = and you? (singular) · <strong>Namwe</strong> = and y'all (polite/plural)</div>
@@ -1809,7 +1690,7 @@
   <!-- QUIZ -->
   <div class="divider"></div>
   <div style="text-align:center;margin:32px 0 8px">
-    <button onclick="startPractice(8)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
+    <button onclick="startPractice(7)" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:12px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px">
       Ready to Practice? 🎯
     </button>
   </div>
@@ -1879,7 +1760,7 @@ const fcData = {
     { q: "Yes",                         a: "Yego",                          s: "" },
     { q: "No",                          a: "Oya",                           s: "" },
   ],
-  4: [
+  3: [
     { q: "What's your name? (polite)",  a: "Mwitwa bande?",                 s: "casual: Witwa nde?" },
     { q: "Where are you from? (polite)",a: "Muturuka he?",                  s: "casual: Uturuka he?" },
     { q: "Where do you live? (polite)", a: "Mutuye he?",                    s: "casual: Utuye he?" },
@@ -1889,7 +1770,7 @@ const fcData = {
     { q: "I am happy to know you",      a: "Nishimiye kukumenya",           s: "plural: Kubamenya" },
     { q: "I am happy to see you",       a: "Nishimiye kukubona",            s: "plural: Kubabona" },
   ],
-  5: [
+  4: [
     { q: "Morning greeting",            a: "Mwaramutse neza?",              s: "↩ Yego, mwaramutse neza!" },
     { q: "Afternoon greeting",          a: "Mwiriwe neza?",                 s: "↩ Yego, mwiriwe neza!" },
     { q: "Evening greeting",            a: "Mwiriwe mute?",                 s: "↩ Yego, mwiriwe neza" },
@@ -1902,7 +1783,7 @@ const fcData = {
     { q: "Have a good night",           a: "Mugire Ijoro ryiza",            s: "leaving wish" },
     { q: "Thank you (polite)",          a: "Murakoze",                      s: "casual: Urakoze" },
   ],
-  6: [
+  5: [
     { q: "1",  a: "Rimwe",           s: "REEM-weh" },
     { q: "2",  a: "Kabiri",          s: "kah-BEE-ree" },
     { q: "3",  a: "Gatatu",          s: "gah-TAH-too" },
@@ -1914,7 +1795,7 @@ const fcData = {
     { q: "100",a: "Ijana",           s: "ee-JAH-nah" },
     { q: "15", a: "Cumi na gatanu",  s: "Cumi na + 5" },
   ],
-  7: [
+  6: [
     { q: "I / Me (emphatic)",                    a: "Njyewe",              s: "standalone · Njyewe nitwa [your name]" },
     { q: "We / Us (emphatic)",                   a: "Twebwe",              s: "standalone · Twebwe duturuka muri Canada" },
     { q: "Me too / As for me (in responses)",    a: "Nanjye",              s: "e.g. Nanjye nimeza" },
@@ -1955,23 +1836,6 @@ const quizData = {
     { q: "'Nturuka muri Canada' means…",                   opts: ["I live in Canada", "I am from Canada", "I visit Canada", "I like Canada"], ans: 1 },
   ],
   3: [
-    { q: "'Nibyo' means…",                   opts: ["False", "I don't know", "Right / Correct", "I understand"],               ans: 2 },
-    { q: "'Sibyo' means…",                   opts: ["Right", "False / Not right", "I remember", "Hold on"],                   ans: 1 },
-    { q: "'Ndabyumva' means…",               opts: ["I don't understand", "I understand it", "I remember", "I don't know"],   ans: 1 },
-    { q: "'Ntabwo mbyumva' means…",          opts: ["I understand", "I don't remember", "I don't understand", "Be patient"],  ans: 2 },
-    { q: "'Ndibuka' means…",                 opts: ["I don't remember", "I understand", "I remember", "I don't know"],        ans: 2 },
-    { q: "'Ntabwo nibuka' means…",           opts: ["I remember", "I don't remember", "I understand", "Hold on"],             ans: 1 },
-    { q: "'Sinzi' means…",                   opts: ["I'm not sure", "I don't understand", "I don't know", "I remember"],      ans: 2 },
-    { q: "'Sinzi neza' means…",              opts: ["I don't know", "I'm not sure", "I don't remember", "Not right"],         ans: 1 },
-    { q: "'Ni iki?' means…",               opts: ["What does it mean?", "What is…?", "How do you say?", "Do you know?"],          ans: 1 },
-    { q: "How to ask 'What is…?'",          opts: ["Nibyo?", "Bivuze iki?", "Ni iki?", "Bavuga gute?"],                            ans: 2 },
-    { q: "'Wasubiyemo' means…",              opts: ["Hold on", "Be patient", "Could you repeat?", "I don't understand"],      ans: 2 },
-    { q: "'B'uretse' means…",                opts: ["I don't know", "Hold on", "Be patient", "I'm thinking"],                 ans: 1 },
-    { q: "'Ihangane' means…",                opts: ["I understand", "Hold on", "Be patient / Bear with me", "Right"],         ans: 2 },
-    { q: "'Nibyo?' (with question mark) means…", opts: ["That's correct", "Right? / Correct?", "False?", "I understand?"],    ans: 1 },
-    { q: "'Urabyumva se?' means…",           opts: ["Do you remember?", "Do you know?", "Do you understand it?", "Is it right?"], ans: 2 },
-  ],
-  4: [
     { q: "Polite 'What's your name?'",                     opts: ["Witwa nde?", "Amazina yanyu ni ayahe?", "Amazina yawe?", "Nitwa nde?"],    ans: 1 },
     { q: "Polite 'Where are you from?'",                   opts: ["Uturuka he?", "Nturuka he?", "Muturuka he?", "Duturuka he?"],           ans: 2 },
     { q: "Polite 'Where do you live?'",                    opts: ["Utuye he?", "Wowe uturukas he?", "Mutuye he?", "Ntuye he?"],            ans: 2 },
@@ -1986,7 +1850,7 @@ const quizData = {
     { q: "'I am happy to know you'",                       opts: ["Nishimiye kukubona", "Kubabona", "Kubamenya", "Nishimiye kukumenya"],   ans: 3 },
     { q: "'I am happy to see you'",                        opts: ["Nishimiye kukumenya", "Kubamenya", "Nishimiye kukubona", "Kubabona"],   ans: 2 },
   ],
-  5: [
+  4: [
     { q: "Morning greeting:",                              opts: ["Mwiriwe neza?", "Murabeho neza.", "Mwaramutse neza?", "Bite!"],         ans: 2 },
     { q: "'Mwaramutse neza?' means…",                      opts: ["Is your day going well?", "Was your day going well?", "Did you wake up well?", "Stay safe"], ans: 2 },
     { q: "Response to 'Mwaramutse neza?'",                 opts: ["Murakoze", "Mwiriwe neza", "Yego, mwaramutse neza!", "Tumeze neza"],   ans: 2 },
@@ -2005,7 +1869,7 @@ const quizData = {
     { q: "'Have a good night'",                            opts: ["Mugire Igitondo cyiza", "Mugire umunsi mwiza", "Mugire Umugoroba mwiza", "Mugire Ijoro ryiza"], ans: 3 },
     { q: "Polite 'Thank you'",                             opts: ["Urakoze", "Nawe", "Namwe", "Murakoze"],                              ans: 3 },
   ],
-  6: [
+  5: [
     { q: "What is 1 in Kinyarwanda?",   opts: ["Kabiri", "Gatatu", "Rimwe", "Kane"],                              ans: 2 },
     { q: "What is 2 in Kinyarwanda?",   opts: ["Rimwe", "Kabiri", "Gatatu", "Kane"],                              ans: 1 },
     { q: "What is 3 in Kinyarwanda?",   opts: ["Kane", "Rimwe", "Gatanu", "Gatatu"],                              ans: 3 },
@@ -2029,7 +1893,7 @@ const quizData = {
     { q: "Pattern for 30–90:",          opts: ["Ijana + number", "Icumi + number", "Mirongo + number word", "Cumi na + number"], ans: 2 },
     { q: "'Mfite imyaka makumyabiri' means…", opts: ["I am 10", "I am 20", "I am 30", "I am 100"],               ans: 1 },
   ],
-  7: [
+  6: [
     { q: "'Njyewe' means…",                      opts: ["Me too / As for me", "I / Me (emphatic)", "And you?", "We (emphatic)"],               ans: 1 },
     { q: "'Twebwe' means…",                      opts: ["Us too / As for us", "And you all?", "We / Us (emphatic)", "Me (emphatic)"],          ans: 2 },
     { q: "'Wowe?' means…",                       opts: ["We too", "And you? (singular)", "And you? (polite)", "Me too"],                      ans: 1 },
@@ -2044,7 +1908,7 @@ const quizData = {
     { q: "After answering, how do you ask back (singular)?", opts: ["Mwebwe?", "Natwe?", "Nanjye?", "Wowe?"],                                 ans: 3 },
     { q: "After answering, how do you ask back (polite)?",   opts: ["Wowe?", "Nanjye?", "Mwebwe?", "Natwe?"],                                 ans: 2 },
   ],
-  8: [
+  7: [
     { q: "'Waramutse neza?' is used for…",                   opts: ["Polite/plural", "Singular/informal", "Evening only", "Goodbye"],        ans: 1 },
     { q: "'Mwaramutse neza?' is used for…",                  opts: ["Singular/informal", "Polite/plural", "Evening only", "Goodbye"],        ans: 1 },
     { q: "Singular morning greeting response:",              opts: ["Yego natwe twaramutse neza.", "Yego nanjye naramutse neza.", "Niriwe neza.", "Murakoze."], ans: 1 },
@@ -2063,8 +1927,8 @@ const quizData = {
 // ══════════════════════════════
 // NAVIGATION — Hamburger Sidebar
 // ══════════════════════════════
-const pageIds = ['c0','c1','c2','c3','c4','c5','c6','c7','c8','practice','cR'];
-const pageLabels = ['Class 0 · Welcome','Class 1 · Pronunciation','Class 2 · Intro','Class 3 · Classroom','Class 4 · Phrases','Class 5 · Greetings','Class 6 · Numbers','Class 7 · Conversation','Class 8 · Greetings Conv.','⭐ Review All'];
+const pageIds = ['c0','c1','c2','c3','c4','c5','c6','c7','practice','cR'];
+const pageLabels = ['Class 0 · Welcome','Class 1 · Pronunciation','Class 2 · Intro','Class 3 · Phrases','Class 4 · Greetings','Class 5 · Numbers','Class 6 · Conversation','Class 7 · Greetings Conv.','⭐ Review All'];
 let currentPage = 'c1';
 
 function toggleSidebar() { document.body.classList.toggle('sidebar-open'); }
@@ -2108,7 +1972,7 @@ const unlocked = JSON.parse(localStorage.getItem('kiny_unlocked') || '[]');
 function saveUnlocked() { localStorage.setItem('kiny_unlocked', JSON.stringify(unlocked)); }
 
 function applyLockState() {
-  [1,2,3,4,5,6,7,8].forEach(n => {
+  [1,2,3,4,5,6,7].forEach(n => {
     const cid = pageIds[n];
     const menuItem = document.getElementById(`menu-${cid}`);
     const lock = menuItem ? menuItem.querySelector('.menu-lock') : null;
@@ -2174,7 +2038,7 @@ function cancelSecretUnlock(n) {
 
 function tryUnlockNext(n) {
   const next = n + 1;
-  if (!unlocked.includes(next) && next <= 8) {
+  if (!unlocked.includes(next) && next <= 7) {
     unlocked.push(next);
     saveUnlocked();
     applyLockState();
@@ -2187,7 +2051,7 @@ function tryUnlockNext(n) {
 }
 
 // FLASHCARDS
-const fcIndex = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0};
+const fcIndex = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
 function renderFC(n) {
   if (!document.getElementById(`fc${n}`)) return;
   const c = fcData[n][fcIndex[n]];
@@ -2208,9 +2072,9 @@ function prevFC(n) {
 }
 
 // QUIZ — one question at a time
-const qScore = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0};
-const qTotal = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0};
-const qCurrent = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0};
+const qScore = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+const qTotal = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+const qCurrent = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
 
 function buildQuiz(n) {
   qScore[n]=0; qTotal[n]=0; qCurrent[n]=0;
@@ -2617,7 +2481,7 @@ function buildConvoQuiz6() {
 }
 
 function renderConvoQuestion6() {
-  const el = document.getElementById('c6-quiz') || document.getElementById('c8-quiz');
+  const el = document.getElementById('c6-quiz') || document.getElementById('c7-quiz');
   if (!el) return;
   const total = convoQuizData6.length;
   const qi = convoIndex6;
@@ -2634,7 +2498,7 @@ function renderConvoQuestion6() {
         <div style="font-size:.88rem;color:#6fa3d4;margin-bottom:${perfect ? '20px' : '4px'}">${Math.round(convoScore6/total*100)}%</div>
         ${perfect ? '<button onclick="navigateTo(\'cR\')" style="background:var(--accent);color:#0d0d0d;border:none;border-radius:9px;padding:12px 28px;font-family:\'DM Sans\',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;">Go to Review All ⭐</button>' : ''}
       </div>`;
-    if (perfect) { launchConfetti(); tryUnlockNext(8); }
+    if (perfect) { launchConfetti(); tryUnlockNext(6); }
     return;
   }
 
@@ -3248,4 +3112,11 @@ applyLockState();
 applyUserProfile();
 navigateTo('c0');
 
-// Auto-number phrase cards within each s
+// Auto-number phrase cards within each section
+document.querySelectorAll('.page').forEach(page => {
+  page.querySelectorAll('.num').forEach((el, i) => { el.textContent = i + 1; });
+});
+
+</script>
+</body>
+</html>
